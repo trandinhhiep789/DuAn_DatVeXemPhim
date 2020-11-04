@@ -1,24 +1,32 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import { Route, Switch } from 'react-router-dom'
+import TrangChu from './Page/TrangChu';
+import TinTuc from './Page/TinTuc';
+import LienHe from './Page/LienHe';
+import UngDung from './Page/UngDung';
+import DangNhap from './Page/DangNhap';
+import DangKy from './Page/DangKy';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+
+      <Switch>
+        <Route path='/trangchu' component={TrangChu} />
+        <Route path='/tintuc' component={TinTuc} />
+        <Route path='/lienhe' component={LienHe} />
+        <Route path='/ungdung' component={UngDung} />
+
+        {/* Router mặc định */}
+        <Route path='/' component={TrangChu} />
+      </Switch>
+
+      <Footer />
+    </>
   );
 }
 
