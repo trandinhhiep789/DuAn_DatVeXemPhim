@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.scss';
+import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import { Route, Switch } from 'react-router-dom'

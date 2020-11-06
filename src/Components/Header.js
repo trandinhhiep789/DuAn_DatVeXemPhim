@@ -4,7 +4,7 @@ import DangKy from '../Page/DangKy'
 import DangKyDangNhapModal from '../Page/DangKyDangNhapModal'
 import DangNhap from '../Page/DangNhap'
 
-import './Header.module.scss'
+// import './Header.module.scss'
 
 //HOC
 const DangKyModal = new DangKyDangNhapModal("Đăng ký", DangKy)
