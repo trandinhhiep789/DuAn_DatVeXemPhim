@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import DangKy from '../Page/DangKy'
-import DangKyDangNhapModal from '../Page/DangKyDangNhapModal'
-import DangNhap from '../Page/DangNhap'
+import DangKy from '../Page/Film/DangKy'
+import DangKyDangNhapModal from '../Page/Film/DangKyDangNhapModal'
+import DangNhap from '../Page/Film/DangNhap'
 
 // import './Header.module.scss'
 
