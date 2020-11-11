@@ -5,10 +5,10 @@
 }
 html,body{
     background: $color-white-0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @include styleText($color-black-0,$fs-0,$fw-normal);
+    font-family: 'Roboto', sans-serif;;
+    @include styleText($color-black-0,$fs-2,$fw-normal);
 }
 a:hover{
     text-decoration: none;
-    transition: all .5s;
+    transition: all .2s;
 }
