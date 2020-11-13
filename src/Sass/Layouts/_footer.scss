@@ -1,0 +1,86 @@
+footer{
+    background-color: $color-black-2;
+    color: $color-gray-0;
+    padding: $pd-4 0;
+    letter-spacing: 1px;
+   .container{
+       width: 70%;
+   }
+    .footer__content{
+        .footer__title{
+            @include styleText($color-white-0,$fs-1,$fw-2);
+        }
+        .footer__link{
+            @include styleText($color-gray-0,$fs-1,$fw-2);
+            display: block;
+            line-height: 2.3;
+            &:hover{
+                color: $color-white-0;
+            }
+        }
+        .footer__icon{
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background-color: $color-white-0;
+            margin-right: $mg-2 - 5;
+            margin-bottom: $mg-2 - 5;
+        }
+        .footer__iconMobile{
+            width: 30px;
+            height: 30px;
+            margin-right: $mg-2;
+            margin-bottom: $mg-2;
+        }
+    }
+    .hrFooter{
+        border-top: 1px solid #4a4a4a;
+    }
+    .footer__copyright{
+        .zinoLogo{
+            width: 80px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .registerLogo{
+            width: 130px;
+            height: auto;
+            justify-content: flex-end;
+        }
+        .footer__info{
+            padding-left: $pd-5;
+            span{
+                display: block;
+                line-height: 1.8;
+                @include styleText($color-gray-0,$fs-1,$fw-1);
+            }
+            span:first-child{
+                color: $color-white-0;
+            }
+        }
+    }
+   
+}
+
+@include responsive("large") {
+    .footer__policy{
+        .footer__title{
+            display: none;
+        }
+        .policy__left{
+            display: none;
+        }
+        .policy__right{
+            display: flex;
+            .footer__link{
+               margin-right: $mg-1;
+            }
+            
+        }
+    }
+   
+    .footer__partners{
+        display: none;
+    }
+
+}
