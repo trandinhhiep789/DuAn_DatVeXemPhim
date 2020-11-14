@@ -57,7 +57,7 @@ export default function Footer() {
 
                     <div className="col-4 d-flex ">
                         <div className="col-6" >
-                           <p className="footer__title">MOBILE APP</p>
+                            <p className="footer__title">MOBILE APP</p>
                             <div className="">
                                 <a target="_blank" href="#" title="APPLE"><img className="footer__iconMobile" src="./img/mobileapp/apple-logo.png" /></a>
                                 <a target="_blank" href="#" title="ANDROID"><img className="footer__iconMobile" src="./img/mobileapp/android-logo.png" /></a>
@@ -77,24 +77,24 @@ export default function Footer() {
                 <hr className="hrFooter" />
                 <div className="row footer__copyright">
                     <div className="col-1">
-                    <img className="zinoLogo" src="./img/zion-logo.jpg" /> </div>
-                   
+                        <img className="zinoLogo" src="./img/zion-logo.jpg" /> </div>
+
                     <div className="col-9 footer__info">
                         <span>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</span>
                         <span>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</span>
                         <span>Giấy chứng nhận đăng ký kinh doanh số: 0101659783,
-                            <br/>
+                            <br />
                             đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.
                         </span>
                         <span>Số Điện Thoại (Hotline): 1900 545 436
-                            <br/>
-                            Email: <a href="" style={{color:"#FB4226"}}> support@tix.vn</a>
+                            <br />
+                            Email: <a href="" style={{ color: "#FB4226" }}> support@tix.vn</a>
                         </span>
                     </div>
 
                     <div className="col-1"><img className="registerLogo" src="./img/register.png" /> </div>
-                    
-                   
+
+
                 </div>
             </div>
         </footer>
