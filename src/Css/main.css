@@ -277,7 +277,8 @@ footer .footer__copyright .footer__info span:first-child {
 .Login_content {
   height: 1024px;
   width: 100%;
-  background-image: url(../assets/img/poster.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/img/poster.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/img/poster.jpg);
   background-position: center;
   background-size: cover;
   -webkit-box-pack: center;
@@ -410,7 +411,7 @@ footer .footer__copyright .footer__info span:first-child {
   background: #da2aa4;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .Login_loginPic {
     width: 100% !important;
     height: 100% !important;
@@ -424,6 +425,12 @@ footer .footer__copyright .footer__info span:first-child {
   .Login_loginPic .Login_login {
     width: 100% !important;
   }
+  .Login_loginPic .Login_login .text {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 @media only screen and (min-width: 376px) and (max-width: 1024px) {
@@ -436,74 +443,97 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 .SignUp_content {
-  height: 100%;
-  background-image: url(../assets/img/poster.jpg);
+  height: 1024px;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/img/poster.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/img/poster.jpg);
   background-position: center;
   background-size: cover;
-  position: relative;
-}
-
-.SignUp_content .overlay {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.611);
-}
-
-.SignUp_loginPic {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 60%;
-  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.SignUp_content .SignUp_loginPic {
+  width: 60%;
+  height: 70%;
   background: white;
   border-radius: 20px;
   -webkit-box-shadow: 5px 7px 10px 5px gray;
           box-shadow: 5px 7px 10px 5px gray;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.SignUp_loginPic .SignUp_pic {
+.SignUp_content .SignUp_loginPic .SignUp_pic {
   width: 60%;
-  background-image: url(../assets/img/neon.jpg);
+  height: 100%;
+  background-image: url(../assets/img/men.jpg);
   background-position: center;
   background-size: cover;
 }
 
-.SignUp_loginPic .SignUp_login {
+.SignUp_content .SignUp_loginPic .SignUp_login {
   width: 40%;
   text-align: center;
-  padding: 15px;
-  margin: auto;
+  padding: 2%;
 }
 
-.SignUp_loginPic .SignUp_login hr {
-  height: 3px;
-  border-radius: 15%;
-  background-color: white;
-}
-
-.SignUp_loginPic .SignUp_login .title {
-  font-weight: bold;
-  text-align: left;
-  font-size: 20px;
-  margin: 0;
-  padding: 0;
-}
-
-.SignUp_loginPic .SignUp_login .error {
+.SignUp_content .SignUp_loginPic .SignUp_login .form-group p {
   text-align: left;
 }
 
-@media only screen and (max-width: 375px) {
+.SignUp_content .SignUp_loginPic .SignUp_login .form-group .formSigup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background: #f0f0f0;
+}
+
+.SignUp_content .SignUp_loginPic .SignUp_login .form-group .formSigup i {
+  color: #acacac;
+}
+
+.SignUp_content .SignUp_loginPic .SignUp_login .form-group .formSigup input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.SignUp_content .SignUp_loginPic .SignUp_login .form-group .formSigup input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media only screen and (max-width: 500px) {
   .SignUp_loginPic {
-    height: 100%;
-    width: 100%;
-    border-radius: 0px;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
   }
   .SignUp_loginPic .SignUp_pic {
     display: none;
@@ -513,29 +543,12 @@ footer .footer__copyright .footer__info span:first-child {
   }
 }
 
-@media only screen and (min-width: 376px) and (max-width: 768px) {
-  .SignUp_loginPic {
-    width: 70%;
-    height: 80%;
-  }
-  .SignUp_loginPic .SignUp_pic {
+@media only screen and (min-width: 376px) and (max-width: 1024px) {
+  .SignUp_pic {
     display: none;
   }
-  .SignUp_loginPic .SignUp_login {
+  .SignUp_login {
     width: 100% !important;
-  }
-}
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .SignUp_loginPic {
-    width: 80%;
-    height: 80%;
-  }
-  .SignUp_loginPic .SignUp_pic {
-    width: 35%;
-  }
-  .SignUp_loginPic .SignUp_login {
-    width: 65%;
   }
 }
 

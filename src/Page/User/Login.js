@@ -3,7 +3,6 @@ import style from "../../Css/main.css";
 export default function Login(props) {
     return (
         <div className='Login_content'>
-            <div className='overlay'></div>
             <div className='Login_loginPic'>
                 <div className='Login_pic'>
                     {/* <img src='../../assets/img/men.jpg' /> */}
