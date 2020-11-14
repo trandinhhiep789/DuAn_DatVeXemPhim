@@ -2,9 +2,9 @@ footer{
     background-color: $color-black-2;
     color: $color-gray-0;
     padding: $pd-4 0;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
    .container{
-       width: 70%;
+       max-width: 80%;
    }
     .footer__content{
         .footer__title{
@@ -45,7 +45,7 @@ footer{
         .registerLogo{
             width: 130px;
             height: auto;
-            justify-content: flex-end;
+            float: right;
         }
         .footer__info{
             padding-left: $pd-5;
@@ -61,26 +61,29 @@ footer{
     }
    
 }
-
-@include responsive("large") {
-    .footer__policy{
-        .footer__title{
-            display: none;
-        }
-        .policy__left{
-            display: none;
-        }
-        .policy__right{
-            display: flex;
-            .footer__link{
-               margin-right: $mg-1;
-            }
-            
-        }
+@include responsive("extra-large"){
+    .container{
+        max-width: 95% !important;
     }
-   
-    .footer__partners{
+}
+@include responsive("large"){
+    .container{
+        max-width: 95% !important;
+    }
+    .footer__title, .policy__left, .footer__partners, .footer__systems{
         display: none;
     }
+    .footer__policy .policy__right{
+        display: flex;
+        .footer__link{
+            margin-left: $mg-3;
+        }
+       
+    }
+    .footer__copyright .footer__info{
+        align-items: center;
 
+    }
 }
+
+

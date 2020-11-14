@@ -165,11 +165,11 @@ footer {
   background-color: #222222;
   color: #949494;
   padding: 20px 0;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 footer .container {
-  width: 70%;
+  max-width: 80%;
 }
 
 footer .footer__content .footer__title {
@@ -219,7 +219,7 @@ footer .footer__copyright .zinoLogo {
 footer .footer__copyright .registerLogo {
   width: 130px;
   height: auto;
-  justify-content: flex-end;
+  float: right;
 }
 
 footer .footer__copyright .footer__info {
@@ -238,21 +238,24 @@ footer .footer__copyright .footer__info span:first-child {
   color: #fff;
 }
 
-@media screen and (max-width: 992px) {
-  .footer__policy .footer__title {
-    display: none;
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 95% !important;
   }
-  .footer__policy .policy__left {
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 95% !important;
+  }
+  .footer__title, .policy__left, .footer__partners, .footer__systems {
     display: none;
   }
   .footer__policy .policy__right {
     display: flex;
   }
   .footer__policy .policy__right .footer__link {
-    margin-right: 8px;
-  }
-  .footer__partners {
-    display: none;
+    margin-left: 20px;
   }
 }
 

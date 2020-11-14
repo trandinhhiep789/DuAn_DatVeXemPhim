@@ -7,14 +7,14 @@ export default function Footer() {
         <footer>
             <div className="container">
                 <div className="row footer__content">
-                    <div className="col-lg-6 col-xl-4  footer__policy">
+                    <div className="col-md-6 col-lg-4  footer__policy">
                         <p className="footer__title">TIX</p>
                         <div className="row">
-                            <div className="col-6 policy__left">
+                            <div className="col-md-0 col-lg-6 policy__left">
                                 <a className="footer__link" href="">FAQ</a>
                                 <a className="footer__link" href="">Brand Guidelines</a>
                             </div>
-                            <div className="col-lg-12 col-xl-6 policy__right">
+                            <div className="col-md-12 col-lg-6 policy__right">
                                 <a className="footer__link" href="">Thỏa thuận dịch vụ</a>
                                 <a className="footer__link" href="">Chính sách bảo mật</a>
                             </div>
@@ -23,7 +23,7 @@ export default function Footer() {
 
                     </div>
 
-                    <div className="col-4 pl-4 footer__partners">
+                    <div className="col-md-0 col-lg-4 pl-4 footer__partners">
                         <p className="footer__title">ĐỐI TÁC</p>
                         <div className="row col-12">
                             <a target="_blank" href="#" title="CGV"><img className="footer__icon" src="./img/partners/cgv.png" /></a>
@@ -55,17 +55,17 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="col-4 d-flex ">
-                        <div className="col-6" >
+                    <div className="col-md-6 col-lg-4 d-flex footer__apps">
+                        <div className="col-md-0 col-lg-6" >
                            <p className="footer__title">MOBILE APP</p>
-                            <div className="">
+                            <div className="footer__systems">
                                 <a target="_blank" href="#" title="APPLE"><img className="footer__iconMobile" src="./img/mobileapp/apple-logo.png" /></a>
                                 <a target="_blank" href="#" title="ANDROID"><img className="footer__iconMobile" src="./img/mobileapp/android-logo.png" /></a>
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-md-12 col-lg-6">
                             <p className="footer__title">SOCIAL</p>
-                            <div className="">
+                            <div className="footer__social">
                                 <a target="_blank" href="#" title="FACEBOOK"><img className="footer__iconMobile" src="./img/mobileapp/facebook-logo.png" /></a>
                                 <a target="_blank" href="#" title="ZALO"><img className="footer__iconMobile" src="./img/mobileapp/zalo-logo.png" /></a>
                             </div>
@@ -76,10 +76,9 @@ export default function Footer() {
                 </div>
                 <hr className="hrFooter" />
                 <div className="row footer__copyright">
-                    <div className="col-1">
-                    <img className="zinoLogo" src="./img/zion-logo.jpg" /> </div>
+                    <div className="col-md-1 col-lg-1"> <img className="zinoLogo" src="./img/zion-logo.jpg" /> </div>
                    
-                    <div className="col-9 footer__info">
+                    <div className="col-md-10 col-lg-10 footer__info">
                         <span>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</span>
                         <span>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</span>
                         <span>Giấy chứng nhận đăng ký kinh doanh số: 0101659783,
@@ -92,7 +91,7 @@ export default function Footer() {
                         </span>
                     </div>
 
-                    <div className="col-1"><img className="registerLogo" src="./img/register.png" /> </div>
+                    <div className="col-md-1 col-lg-1"><img className="registerLogo" src="./img/register.png" /> </div>
                     
                    
                 </div>
