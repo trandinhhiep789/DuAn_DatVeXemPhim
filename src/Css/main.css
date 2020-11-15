@@ -314,7 +314,7 @@ footer .footer__copyright .footer__info span:first-child {
 .Login_content .Login_loginPic .Login_pic {
   width: 60%;
   height: 100%;
-  background-image: url(../assets/img/movielogin.jpg);
+  background-image: url(../assets/img/movie1.gif);
   background-position: center;
   background-size: cover;
 }
@@ -322,7 +322,7 @@ footer .footer__copyright .footer__info span:first-child {
 .Login_content .Login_loginPic .Login_login {
   width: 40%;
   text-align: center;
-  padding: 2%;
+  padding: 20px;
 }
 
 .Login_content .Login_loginPic .Login_login .form-group p {
@@ -340,7 +340,7 @@ footer .footer__copyright .footer__info span:first-child {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 20px;
-  padding: 5px 15px;
+  padding: 4px 15px;
   background: #f0f0f0;
 }
 
@@ -381,37 +381,58 @@ footer .footer__copyright .footer__info span:first-child {
       flex-wrap: wrap;
 }
 
-.Login_content .Login_loginPic .Login_login .social-media .social-icon {
-  height: 50px;
-  width: 50px;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  margin: 10px;
-  line-height: 50px;
-  cursor: pointer;
+.Login_content .Login_loginPic .Login_login .social-media a {
+  width: 70px;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.Login_content .Login_loginPic .Login_login .social-media .fa-facebook-f {
+.Login_content .Login_loginPic .Login_login .social-media a .social-icon {
+  height: 40px;
+  width: 40px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  line-height: 40px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media a .social-icon:hover {
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media a .fa-facebook-f {
   color: white;
   background: #1774d4;
 }
 
-.Login_content .Login_loginPic .Login_login .social-media .fa-google-plus-g {
+.Login_content .Login_loginPic .Login_login .social-media a .fa-google-plus-g {
   color: white;
   background: #e83b14;
 }
 
-.Login_content .Login_loginPic .Login_login .social-media .fa-twitter {
+.Login_content .Login_loginPic .Login_login .social-media a .fa-twitter {
   color: white;
   background: #1da1f2;
 }
 
-.Login_content .Login_loginPic .Login_login .social-media .fa-linkedin-in {
+.Login_content .Login_loginPic .Login_login .social-media a .fa-linkedin-in {
   color: white;
   background: #da2aa4;
 }
 
-@media only screen and (max-width: 500px) {
+@media screen and (max-width: 576px) {
   .Login_loginPic {
     width: 100% !important;
     height: 100% !important;
@@ -433,12 +454,21 @@ footer .footer__copyright .footer__info span:first-child {
   }
 }
 
-@media only screen and (min-width: 376px) and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .Login_pic {
     display: none;
   }
   .Login_login {
     width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Login_pic {
+    width: 40% !important;
+  }
+  .Login_login {
+    width: 60% !important;
   }
 }
 
@@ -482,7 +512,7 @@ footer .footer__copyright .footer__info span:first-child {
 .SignUp_content .SignUp_loginPic .SignUp_pic {
   width: 60%;
   height: 100%;
-  background-image: url(../assets/img/men.jpg);
+  background-image: url(../assets/img/movie2.gif);
   background-position: center;
   background-size: cover;
 }
@@ -490,7 +520,7 @@ footer .footer__copyright .footer__info span:first-child {
 .SignUp_content .SignUp_loginPic .SignUp_login {
   width: 40%;
   text-align: center;
-  padding: 2%;
+  padding: 20px;
 }
 
 .SignUp_content .SignUp_loginPic .SignUp_login .form-group p {
@@ -508,7 +538,7 @@ footer .footer__copyright .footer__info span:first-child {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 20px;
-  padding: 5px 15px;
+  padding: 4px 15px;
   background: #f0f0f0;
 }
 
@@ -527,7 +557,7 @@ footer .footer__copyright .footer__info span:first-child {
           box-shadow: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media screen and (max-width: 576px) {
   .SignUp_loginPic {
     width: 100% !important;
     height: 100% !important;
@@ -541,14 +571,29 @@ footer .footer__copyright .footer__info span:first-child {
   .SignUp_loginPic .SignUp_login {
     width: 100% !important;
   }
+  .SignUp_loginPic .SignUp_login .text {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
-@media only screen and (min-width: 376px) and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .SignUp_pic {
     display: none;
   }
   .SignUp_login {
     width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .SignUp_pic {
+    width: 40% !important;
+  }
+  .SignUp_login {
+    width: 60% !important;
   }
 }
 

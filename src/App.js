@@ -7,12 +7,12 @@ import SignUp from './Page/User/SignUp';
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <Login />
-      <SignUp />
+      {/* <SignUp /> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -27,8 +27,8 @@ export default function Login(props) {
                         </div>
                         <div className='form-group text'>
                             <div>
-                                <input type='checkbox' className='mr-1' />
-                                <label style={{ margin: 0 }}>Ghi nhớ đăng nhập</label>
+                                <input id='remember' type='checkbox' className='mr-1' />
+                                <label for="remember" style={{ margin: 0 }}>Ghi nhớ đăng nhập</label>
                             </div>
                             <div>
                                 <a href='/'>Quên mật khẩu?</a>
@@ -44,6 +44,7 @@ export default function Login(props) {
                             <a href='https://www.linkedin.com/'><i class="fab fa-linkedin-in social-icon"></i></a>
                         </div>
                     </form>
+                    <span>Bạn chưa có tài khoản?<a href='/dangky'> Đăng ký</a></span>
                 </div>
             </div>
         </div >
