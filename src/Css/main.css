@@ -66,31 +66,31 @@ header nav:hover {
 }
 
 header .weblogo {
-  width: 50px;
+  width: 47px;
   transform: translateX(20%);
 }
 
-header #header__menu {
+header .header__menu {
   position: absolute;
   top: 50%;
   left: 45%;
   transform: translate(-50%, -50%);
 }
 
-header #header__menu .nav-link {
+header .header__menu .nav-item .nav-link {
   color: #4a4a4a;
   font-size: 14px;
   font-weight: 700;
 }
 
-header #header__menu .nav-link:hover {
+header .header__menu .nav-item .nav-link:hover {
   color: #fb4226;
 }
 
 header .header__user {
   position: absolute;
   top: 50%;
-  right: 4%;
+  right: 5%;
   transform: translateY(-50%);
   display: flex;
   justify-content: flex-end;
@@ -107,7 +107,7 @@ header .header__user .account img {
 }
 
 header .header__user .account span {
-  color: #e6e6e6;
+  color: #949494;
   font-size: 12px;
   font-weight: 700;
   padding: 0 8px;
@@ -123,7 +123,7 @@ header .header__user .location .location__logo {
 }
 
 header .header__user .location .dropdown .btn {
-  color: #e6e6e6;
+  color: #949494;
   font-size: 12px;
   font-weight: 700;
 }
@@ -134,7 +134,7 @@ header .header__user .location .dropdown .btn:focus {
 }
 
 header .header__user .location .dropdown-menu {
-  transform: translateY(15%);
+  transform: translateY(10%);
 }
 
 header .header__user .location .dropdown-menu .dropdown-item {
@@ -161,11 +161,48 @@ header .header__user .location .selectScroll::-webkit-scrollbar-thumb {
   background: #e6e6e6;
 }
 
+header .rightMenu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header .header__menu {
+    display: none;
+  }
+  header .header__user {
+    display: none;
+  }
+  header .rightMenu {
+    display: block;
+    background-color: #fff;
+    width: 70%;
+    float: right;
+    position: absolute;
+    top: 0;
+  }
+  header .rightMenu .account {
+    padding-top: 15px;
+    padding-left: 15px;
+    border-right: 1px solid #e6e6e6;
+  }
+  header .rightMenu .account img {
+    width: 30px;
+    border-radius: 30px;
+  }
+  header .rightMenu .account span {
+    color: #949494;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 8px;
+  }
+}
+
 footer {
   background-color: #222222;
   color: #949494;
   padding: 20px 0;
   letter-spacing: 0.5px;
+  border-top: 1px solid #949494;
 }
 
 footer .container {
@@ -176,6 +213,15 @@ footer .footer__content .footer__title {
   color: #fff;
   font-size: 12px;
   font-weight: 700;
+}
+
+footer .footer__content .footer__policy {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+footer .footer__content .footer__policy .policy__left {
+  margin-right: 40px;
 }
 
 footer .footer__content .footer__link {
@@ -199,7 +245,15 @@ footer .footer__content .footer__icon {
   margin-bottom: 15px;
 }
 
-footer .footer__content .footer__iconMobile {
+footer .footer__content .footer__apps {
+  display: flex;
+}
+
+footer .footer__content .footer__apps .footer__systems {
+  margin-right: 40px;
+}
+
+footer .footer__content .footer__apps .footer__iconMobile {
   width: 30px;
   height: 30px;
   margin-right: 20px;
@@ -214,16 +268,19 @@ footer .footer__copyright .zinoLogo {
   width: 80px;
   height: auto;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 footer .footer__copyright .registerLogo {
   width: 130px;
   height: auto;
   float: right;
+  padding-bottom: 10px;
 }
 
 footer .footer__copyright .footer__info {
   padding-left: 25px;
+  margin-bottom: 8px;
 }
 
 footer .footer__copyright .footer__info span {
@@ -239,23 +296,294 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
-    max-width: 95% !important;
+  footer .container {
+    max-width: 90% !important;
+  }
+  footer .footer__content .footer__policy .footer__link {
+    color: blue;
   }
 }
 
 @media screen and (max-width: 992px) {
-  .container {
-    max-width: 95% !important;
+  footer .container {
+    max-width: 94% !important;
   }
-  .footer__title, .policy__left, .footer__partners, .footer__systems {
+  footer .footer__title,
+  footer .policy__left,
+  footer .footer__partners,
+  footer .footer__systems {
     display: none;
   }
-  .footer__policy .policy__right {
+  footer .policy__right {
     display: flex;
   }
-  .footer__policy .policy__right .footer__link {
-    margin-left: 20px;
+  footer .policy__right .footer__link {
+    margin: 0 8px;
+  }
+  footer .footer__copyright .footer__info {
+    text-align: center;
+  }
+  footer .footer__content .footer__policy .policy__right .footer__link {
+    color: red;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer .container {
+    max-width: 100% !important;
+  }
+  footer .container .footer__content {
+    flex-direction: column;
+    align-items: center;
+  }
+  footer .footer__policy,
+  footer .footer__apps {
+    justify-content: center;
+  }
+  footer .footer__copyright {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  footer .footer__copyright .registerLogo {
+    float: unset;
+  }
+  footer .hrFooter {
+    margin-top: unset;
+  }
+  footer .footer__content .footer__policy .policy__right .footer__link {
+    color: pink;
+  }
+}
+
+.Login_content {
+  height: 1024px;
+  width: 100%;
+  background-image: url(../assets/img/poster.jpg);
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.Login_content .Login_loginPic {
+  width: 60%;
+  height: 60%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 5px 7px 10px 5px gray;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login_content .Login_loginPic .Login_pic {
+  width: 60%;
+  height: 100%;
+  background-image: url(../assets/img/movielogin.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.Login_content .Login_loginPic .Login_login {
+  width: 40%;
+  text-align: center;
+  padding: 2%;
+}
+
+.Login_content .Login_loginPic .Login_login .form-group p {
+  text-align: left;
+}
+
+.Login_content .Login_loginPic .Login_login .form-group .formLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background: #f0f0f0;
+}
+
+.Login_content .Login_loginPic .Login_login .form-group .formLogin i {
+  color: #acacac;
+}
+
+.Login_content .Login_loginPic .Login_login .form-group .formLogin input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.Login_content .Login_loginPic .Login_login .form-group .formLogin input:focus {
+  box-shadow: none;
+}
+
+.Login_content .Login_loginPic .Login_login .text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media {
+  padding-top: 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media .social-icon {
+  height: 50px;
+  width: 50px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  margin: 10px;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media .fa-facebook-f {
+  color: white;
+  background: #1774d4;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media .fa-google-plus-g {
+  color: white;
+  background: #e83b14;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media .fa-twitter {
+  color: white;
+  background: #1da1f2;
+}
+
+.Login_content .Login_loginPic .Login_login .social-media .fa-linkedin-in {
+  color: white;
+  background: #da2aa4;
+}
+
+@media only screen and (max-width: 375px) {
+  .Login_loginPic {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .Login_loginPic .Login_pic {
+    display: none;
+  }
+  .Login_loginPic .Login_login {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 1024px) {
+  .Login_pic {
+    display: none;
+  }
+  .Login_login {
+    width: 100% !important;
+  }
+}
+
+.SignUp_content {
+  height: 100%;
+  background-image: url(../assets/img/poster.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.SignUp_content .overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.611);
+}
+
+.SignUp_loginPic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  margin: auto;
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 5px 7px 10px 5px gray;
+  overflow: hidden;
+}
+
+.SignUp_loginPic .SignUp_pic {
+  width: 60%;
+  background-image: url(../assets/img/neon.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.SignUp_loginPic .SignUp_login {
+  width: 40%;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+}
+
+.SignUp_loginPic .SignUp_login hr {
+  height: 3px;
+  border-radius: 15%;
+  background-color: white;
+}
+
+.SignUp_loginPic .SignUp_login .title {
+  font-weight: bold;
+  text-align: left;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.SignUp_loginPic .SignUp_login .error {
+  text-align: left;
+}
+
+@media only screen and (max-width: 375px) {
+  .SignUp_loginPic {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+  }
+  .SignUp_loginPic .SignUp_pic {
+    display: none;
+  }
+  .SignUp_loginPic .SignUp_login {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+  .SignUp_loginPic {
+    width: 70%;
+    height: 80%;
+  }
+  .SignUp_loginPic .SignUp_pic {
+    display: none;
+  }
+  .SignUp_loginPic .SignUp_login {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .SignUp_loginPic {
+    width: 80%;
+    height: 80%;
+  }
+  .SignUp_loginPic .SignUp_pic {
+    width: 35%;
+  }
+  .SignUp_loginPic .SignUp_login {
+    width: 65%;
   }
 }
 

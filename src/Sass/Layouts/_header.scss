@@ -13,16 +13,16 @@ header {
     }
 
     .weblogo {
-        width: 50px;
+        width: 47px;
         transform: translateX(20%);
     }
 
-    #header__menu {
+    .header__menu {
         position: absolute;
         top: 50%;
         left: 45%;
         transform: translate(-50%, -50%);
-        .nav-link {
+        .nav-item .nav-link {
             @include styleText($color-black-1, $fs-2, $fw-2);
             &:hover {
                 color: $color-red-0;
@@ -33,7 +33,7 @@ header {
     .header__user {
         position: absolute;
         top: 50%;
-        right: 4%;
+        right: 5%;
         transform: translateY(-50%);
         display: flex;
         justify-content: flex-end;
@@ -45,7 +45,7 @@ header {
                 border-radius: 30px;
             }
             span {
-                @include styleText($color-gray-1, $fs-1, $fw-2);
+                @include styleText($color-gray-0, $fs-1, $fw-2);
                 padding: 0 $pd-1;
             }
         }
@@ -58,7 +58,7 @@ header {
             }
             .dropdown {
                 .btn {
-                    @include styleText($color-gray-1, $fs-1, $fw-2);
+                    @include styleText($color-gray-0, $fs-1, $fw-2);
                     &:focus {
                         outline: none;
                         box-shadow: none;
@@ -67,7 +67,7 @@ header {
             }
 
             .dropdown-menu {
-                transform: translateY(15%);
+                transform: translateY(10%);
                 .dropdown-item {
                     line-height: 20px !important;
                 }
@@ -92,18 +92,42 @@ header {
             }
         }
     }
+    .rightMenu{
+        display: none;
+    }
+}
 
-    // .hinhanh{
-    //     background-image: url('../');
-    //     width: 60px;
-    //     height: 60px;
-    //     color: yellow;
-    //     font-size: 15px;
-    //  }
-
-    //  .navbar-light .navbar-toggler-icon{
-    //      background-image: '../img/menu-options.png';
-    //  }
+@include responsive("medium"){
+    header{
+        .header__menu{
+            display: none;
+        }
+        .header__user{
+            display: none;
+        }
+        .rightMenu{
+            display: block;
+            background-color: $color-white-0;
+            width: 70%;
+            float: right;
+            position: absolute;
+            top: 0;
+            // left: 30%;
+            .account {
+                padding-top: $pd-3 ;
+                padding-left: $pd-3;
+                border-right: 1px solid #e6e6e6;
+                img {
+                    width: 30px;
+                    border-radius: 30px;
+                }
+                span {
+                    @include styleText($color-gray-0, $fs-2, $fw-2);
+                    padding: 0 $pd-1;
+                }
+            }
+        }
+    }
 }
 
 
