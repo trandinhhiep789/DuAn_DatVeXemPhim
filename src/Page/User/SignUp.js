@@ -33,7 +33,6 @@ export default function SignUp(props) {
     }
     return (
         <div className='SignUp_content'>
-            <div className='overlay'></div>
             <div className='SignUp_loginPic'>
                 <div className='SignUp_pic'>
 
@@ -43,26 +42,43 @@ export default function SignUp(props) {
                         <h1>Đăng ký</h1>
                         <hr />
                         <div className='form-group'>
-                            <p className='title'>Tài khoản</p>
-                            <input className='form-control' name='taiKhoan' placeholder='Tài khoản' />
+                            <p className='title'>Tài khoản:</p>
+                            <div className='formSigup'>
+                                <i class="fa fa-user-alt"></i>
+                                <input className='form-control' name='taiKhoan' placeholder='Tài khoản' />
+                            </div>
+
                         </div>
                         <div className='form-group'>
-                            <p className='title'>Mật khẩu</p>
-                            <input className='form-control' name='matKhau' placeholder='Mật khẩu' />
+                            <p className='title'>Mật khẩu:</p>
+                            <div className='formSigup'>
+                                <i class="fa fa-lock"></i>
+                                <input type='password' className='form-control' name='matKhau' placeholder='Mật khẩu' />
+                            </div>
+
                         </div>
                         <div className='form-group'>
-                            <p className='title'>Họ tên</p>
-                            <input types='hoTen' name='hoTen' className='form-control' placeholder='Họ tên' onChange={handleChangeInput} />
+                            <p className='title'>Họ tên:</p>
+                            <div className='formSigup'>
+                                <i class="fa fa-address-card"></i>
+                                <input types='hoTen' name='hoTen' className='form-control' placeholder='Họ tên' onChange={handleChangeInput} />
+                            </div>
                             <p className="text-danger error">{error.hoTen}</p>
                         </div>
                         <div className='form-group'>
-                            <p className='title'>Email</p>
-                            <input types='email' name='email' className='form-control' placeholder='Email' onChange={handleChangeInput} />
+                            <p className='title'>Email:</p>
+                            <div className='formSigup'>
+                                <i class="fa fa-envelope"></i>
+                                <input types='email' name='email' className='form-control' placeholder='Email' onChange={handleChangeInput} />
+                            </div>
                             <p className="text-danger error">{error.email}</p>
                         </div>
                         <div className='form-group'>
-                            <p className='title'>Số điện thoại</p>
-                            <input types='phoneNumber' name='phoneNumber' className='form-control' placeholder='Số điện thoại' onChange={handleChangeInput} />
+                            <p className='title'>Số điện thoại:</p>
+                            <div className='formSigup'>
+                                <i class="fa fa-mobile-alt"></i>
+                                <input types='phoneNumber' name='phoneNumber' className='form-control' placeholder='Số điện thoại' onChange={handleChangeInput} />
+                            </div>
                             <p className="text-danger error">{error.phoneNumber}</p>
                         </div>
                         <div className='form-group'>

@@ -1,9 +1,9 @@
 import React from 'react'
 import style from "../../Css/main.css";
 export default function Login(props) {
+
     return (
         <div className='Login_content'>
-            <div className='overlay'></div>
             <div className='Login_loginPic'>
                 <div className='Login_pic'>
                     {/* <img src='../../assets/img/men.jpg' /> */}
@@ -28,8 +28,8 @@ export default function Login(props) {
                         </div>
                         <div className='form-group text'>
                             <div>
-                                <input type='checkbox' className='mr-1' />
-                                <label style={{ margin: 0 }}>Ghi nhớ đăng nhập</label>
+                                <input id='remember' type='checkbox' className='mr-1' />
+                                <label for="remember" style={{ margin: 0 }}>Ghi nhớ đăng nhập</label>
                             </div>
                             <div>
                                 <a href='/'>Quên mật khẩu?</a>
@@ -45,6 +45,7 @@ export default function Login(props) {
                             <a href='https://www.linkedin.com/'><i class="fab fa-linkedin-in social-icon"></i></a>
                         </div>
                     </form>
+                    <span>Bạn chưa có tài khoản?<a href='/signup'> Đăng ký</a></span>
                 </div>
             </div>
         </div >
