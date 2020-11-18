@@ -1,0 +1,41 @@
+.PersonalInfo_conent {
+    .personalInfo_info {
+        .nav-tabs {
+            margin-left: $mg-2 * 2;
+            border: none;
+            .nav-link {
+                background: rgb(218, 216, 216) !important;
+                color: black !important;
+                &:focus {
+                    background: #226bb5 !important;
+                    color: white !important;
+                }
+            }
+        }
+        margin: 50px auto;
+        .personal_information {
+            padding: $pd-5;
+            border: 1px solid gray;
+            width: 100%;
+            .personalInfo_left, .personalInfo_right{
+                display: flex;
+                flex-direction: column;
+                word-wrap: break-word;
+                p{
+                    font-weight: bold;
+                    font-size: $fs-4;
+                    span{
+                        font-weight: normal;
+                        font-size: $fs-2;
+                    }
+                }
+            }
+        }
+        .history_booking {
+            border: 1px solid gray;
+            padding: $pd-5;
+            width: 100%;
+        }
+    }
+    
+}
