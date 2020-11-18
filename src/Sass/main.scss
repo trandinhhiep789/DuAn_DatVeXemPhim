@@ -1,24 +1,27 @@
 //Helper
-@import './Helper/variables';
-@import './Helper/mixin';
+@import "./Helper/variables";
+@import "./Helper/mixin";
 
 //Vendor
 
-
 //Base
-@import './Base/reset';
-
+@import "./Base/reset";
 
 //Components
-@import './Components/button';
+@import "./Components/button";
 
 //Layouts
-@import './Layouts/header';
-@import './Layouts/footer';
-@import './Layouts/login';
-@import './Layouts/signup';
+@import "./Layouts/header";
+@import "./Layouts/footer";
+@import "./Layouts/login";
+@import "./Layouts/signup";
 //Pages
 
 //Theme
-@import './Helper//animation';
+@import "./Helper//animation";
 
+//Admin
+@import "../Page/Admin/Admin.scss";
+
+//Quản lý phim
+@import "../Page/Admin/QuanLyPhim.scss";

@@ -1,0 +1,20 @@
+.you {
+  color: yellowgreen;
+}
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  margin: 16px;
+}
+
+.site-layout .site-layout-background {
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/img/poster.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/img/poster.jpg);
+  background-position: center;
+  background-size: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=Admin.css.map */
