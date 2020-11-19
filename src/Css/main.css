@@ -106,6 +106,16 @@ header .header__user {
           justify-content: flex-end;
 }
 
+header .header__user .nav-item .nav-link {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+header .header__user .nav-item .nav-link:hover {
+  color: #fb4226;
+}
+
 header .header__user .account {
   padding-right: 10px;
   border-right: 1px solid #e6e6e6;
@@ -711,6 +721,14 @@ footer .footer__copyright .footer__info span:first-child {
   }
 }
 
+.PersonalInfo_conent .personalInfo_banner {
+  background-image: url(../assets/img/banner.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: 100%;
+}
+
 .PersonalInfo_conent .personalInfo_info {
   margin: 50px auto;
 }
@@ -721,6 +739,7 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 .PersonalInfo_conent .personalInfo_info .nav-tabs .nav-link {
+  border-top-right-radius: 24px;
   background: #dad8d8 !important;
   color: black !important;
 }

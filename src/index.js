@@ -4,17 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//import router
-import { BrowserRouter } from 'react-router-dom'
+// Cấu hình redux
+import { BrowserRouter, Router } from "react-router-dom";
+import { applyMiddleware, createStore } from "redux";
+import { Provider } from "react-redux";
+import { rootReducer } from "./redux/reducers/rootReducer";
+import reduxThunk from 'redux-thunk'
+import { history } from "./Util/history";
+
+const store = createStore(rootReducer, applyMiddleware(reduxThunk));
+// Cấu hinhg router
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
+  <Router history={history}>
+    <Provider store={store}>
       <App />
-    </React.StrictMode>
-  </BrowserRouter>,
+    </Provider>
+  </Router>,
 
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

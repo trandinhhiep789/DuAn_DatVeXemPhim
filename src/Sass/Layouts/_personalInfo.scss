@@ -1,9 +1,17 @@
 .PersonalInfo_conent {
+   .personalInfo_banner{
+       background-image: url(../assets/img/banner.jpg);
+       background-size: cover;
+       background-position: center;
+       height: 500px;
+       width: 100%;
+   }
     .personalInfo_info {
         .nav-tabs {
             margin-left: $mg-2 * 2;
             border: none;
             .nav-link {
+                border-top-right-radius: $fs-5;
                 background: rgb(218, 216, 216) !important;
                 color: black !important;
                 &:focus {

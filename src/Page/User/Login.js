@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "../../Css/main.css";
+import { useDispatch } from 'react-redux'
+import { dangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction'
 export default function Login(props) {
-
+    const dispatch = useDispatch()
+    const [userLogin, setUserLogin] = useState({ taiKhoan: '', matKhau: '' })
+    console.log(userLogin)
+    const handleChange = (e) => {
+        let { value, name } = e.target;
+        // Thay đổi giá trị thuộc tính đang onChange
+        let newUserLogin = { ...userLogin, [name]: value };
+        // Set lại state của userLogin = giá trị mới
+        setUserLogin(newUserLogin)
+        console.log(userLogin);
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault() // chặn sự kiện reload browser
+        // if(userLogin.taiKhoan === 'haha' && userLogin.matKhau === 'haha'){
+        //     alert('Login Success')
+        //     props.history.push('/home')
+        // }
+        dispatch(dangNhapAction(userLogin))
+    }
     return (
         <div className='Login_content'>
             <div className='Login_loginPic'>
@@ -9,21 +29,21 @@ export default function Login(props) {
                     {/* <img src='../../assets/img/men.jpg' /> */}
                 </div>
                 <div className='Login_login'>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <h1>Đăng nhập</h1>
                         <hr />
                         <div className='form-group'>
                             <p>Tài khoản:</p>
                             <div className='formLogin'>
                                 <i class="fa fa-user-alt"></i>
-                                <input className='form-control' name='taiKhoan' placeholder='Tài khoản' />
+                                <input className='form-control' name='taiKhoan' placeholder='Tài khoản' onChange={handleChange} />
                             </div>
                         </div>
                         <div className='form-group'>
                             <p>Mật khẩu:</p>
                             <div className='formLogin'>
                                 <i class="fa fa-lock"></i>
-                                <input type='password' className='form-control' name='matKhau' placeholder='Mật khẩu' />
+                                <input type='password' className='form-control' name='matKhau' placeholder='Mật khẩu' onChange={handleChange} />
                             </div>
                         </div>
                         <div className='form-group text'>

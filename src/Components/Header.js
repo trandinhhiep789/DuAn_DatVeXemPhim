@@ -1,7 +1,9 @@
 import React from "react";
 import style from "../Css/main.css";
-
+import { NavLink } from 'react-router-dom'
+import { useSelector } from "react-redux";
 export default function Header() {
+  const userLogin = useSelector(state => state.QuanLyNguoiDungReducer.userLogin);
   return (
 
 
@@ -11,7 +13,7 @@ export default function Header() {
     // HEADER
     <header>
 
-{/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href="#">Navbar</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon" />
@@ -36,11 +38,11 @@ export default function Header() {
 
 
       <nav className="navbar navbar-expand-md navbar-light">
-        <a className="navbar-brand" href="#"><img className="weblogo" src="./img/web-logo.png" /></a>
+        <NavLink className="navbar-brand" to="/"><img className="weblogo" src="./img/web-logo.png" alt='' /></NavLink>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
-        </button>       
+        </button>
         {/* <button className="" type="button" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
           <span className="navbar-toggler-icon" />
         </button>   */}
@@ -49,25 +51,42 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="header__menu">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0 ">
-            <li className="nav-item">
-              <a className="nav-link" href="#">Lịch Chiếu</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Cụm Rạp</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Tin tức</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Ứng dụng</a>
-            </li>
-          </ul>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">Lịch Chiếu</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">Cụm Rạp</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">Tin tức</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">Ứng dụng</NavLink>
+              </li>
+              {userLogin.taiKhoan ?
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/personalInfo">Thông tin cá nhân</NavLink>
+                </li>
+                : ''}
+            </ul>
           </div>
           <div className="header__user">
-            <div className="account">
-              <img src="./img/avatar.png" />
-              <span>Đăng nhập</span>
-            </div>
+            <form className="form-inline my-2 my-lg-0">
+              <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                {userLogin.taiKhoan ?
+                  <li className="nav-item">
+                    <NavLink to="/"><span className='text-danger mx-1'>Hello, {userLogin.taiKhoan} </span></NavLink>
+                  </li>
+                  : (<>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName='bg-dark text-white' to="/login">Đăng nhập</NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName='bg-dark text-white' to="/signup">Đăng ký</NavLink>
+                    </li>
+                  </>)}
+              </ul>
+            </form>
             <div className="location">
               <div className="location__logo"><img src="./img/location-header.png" /></div>
               <div className="dropdown">
@@ -75,10 +94,10 @@ export default function Header() {
                   Hồ Chí Minh
                 </button>
                 <div className="dropdown-menu selectScroll" aria-labelledby="dropdownMenu2">
-                  <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                  <a className="dropdown-item" href="#">Hà Nội</a>
-                  <a className="dropdown-item" href="#">Đà Nẵng</a>
-                  <a className="dropdown-item" href="#">Buôn Mê Thuộc</a>
+                  <NavLink className="dropdown-item" to="#">Hồ Chí Minh</NavLink>
+                  <NavLink className="dropdown-item" to="#">Hà Nội</NavLink>
+                  <NavLink className="dropdown-item" to="#">Đà Nẵng</NavLink>
+                  <NavLink className="dropdown-item" to="#">Buôn Mê Thuộc</NavLink>
                 </div>
               </div>
             </div>
