@@ -45,5 +45,17 @@
             width: 100%;
         }
     }
-    
+}
+@include responsive("small") {
+    .personalInfo_info {
+        .nav-tabs {
+            margin-left: 0 !important;
+        }
+        .personal_information_row{
+            flex-direction: column !important;
+            .personalInfo_left, .personalInfo_right{
+                max-width: 100%;
+            }
+        }
+    }
 }

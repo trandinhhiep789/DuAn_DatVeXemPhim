@@ -399,7 +399,6 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 .Login_content {
-  height: 1024px;
   width: 100%;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/img/poster.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/img/poster.jpg);
@@ -444,6 +443,7 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 .Login_content .Login_loginPic .Login_login {
+  height: 100% !important;
   width: 40%;
   text-align: center;
   padding: 20px;
@@ -563,6 +563,7 @@ footer .footer__copyright .footer__info span:first-child {
     border-radius: 0 !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
+    overflow: scroll  !important;
   }
   .Login_loginPic .Login_pic {
     display: none;
@@ -579,6 +580,15 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 @media screen and (max-width: 992px) {
+  .Login_loginPic {
+    overflow: scroll  !important;
+  }
+  .Login_loginPic .Login_pic {
+    display: none;
+  }
+  .Login_loginPic .Login_login {
+    width: 100% !important;
+  }
   .Login_pic {
     display: none;
   }
@@ -588,10 +598,13 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 @media screen and (max-width: 1200px) {
-  .Login_pic {
+  .Login_loginPic {
+    overflow: scroll !important;
+  }
+  .Login_loginPic .Login_pic {
     width: 40% !important;
   }
-  .Login_login {
+  .Login_loginPic .Login_login {
     width: 60% !important;
   }
 }
@@ -780,6 +793,21 @@ footer .footer__copyright .footer__info span:first-child {
   border: 1px solid gray;
   padding: 25px;
   width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .personalInfo_info .nav-tabs {
+    margin-left: 0 !important;
+  }
+  .personalInfo_info .personal_information_row {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .personalInfo_info .personal_information_row .personalInfo_left, .personalInfo_info .personal_information_row .personalInfo_right {
+    max-width: 100%;
+  }
 }
 
 @-webkit-keyframes fadeInDown {

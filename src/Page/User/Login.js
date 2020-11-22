@@ -1,29 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "../../Css/main.css";
 import { useDispatch } from 'react-redux'
-import { dangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction'
+import { dangNhapApiAction } from '../../redux/actions/QuanLyNguoiDungAction'
 export default function Login(props) {
+    const [height, setHeight] = useState(window.innerHeight);
+    useEffect(() => {
+        window.onresize = function () {
+            setHeight(window.innerHeight);
+        }
+    }, []);
     const dispatch = useDispatch()
     const [userLogin, setUserLogin] = useState({ taiKhoan: '', matKhau: '' })
-    console.log(userLogin)
+
     const handleChange = (e) => {
         let { value, name } = e.target;
-        // Thay đổi giá trị thuộc tính đang onChange
         let newUserLogin = { ...userLogin, [name]: value };
-        // Set lại state của userLogin = giá trị mới
         setUserLogin(newUserLogin)
-        console.log(userLogin);
     }
-    const handleSubmit = (e) => {
-        e.preventDefault() // chặn sự kiện reload browser
-        // if(userLogin.taiKhoan === 'haha' && userLogin.matKhau === 'haha'){
-        //     alert('Login Success')
-        //     props.history.push('/home')
-        // }
-        dispatch(dangNhapAction(userLogin))
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        dispatch(await dangNhapApiAction(userLogin))
     }
     return (
-        <div className='Login_content'>
+        <div className='Login_content' style={{ height }}>
             <div className='Login_loginPic'>
                 <div className='Login_pic'>
                     {/* <img src='../../assets/img/men.jpg' /> */}
@@ -64,8 +63,9 @@ export default function Login(props) {
                             <a href='https://twitter.com/'><i class="fab fa-twitter social-icon"></i></a>
                             <a href='https://www.linkedin.com/'><i class="fab fa-linkedin-in social-icon"></i></a>
                         </div>
+                        <span>Bạn chưa có tài khoản?<a href='/signup'> Đăng ký</a></span>
                     </form>
-                    <span>Bạn chưa có tài khoản?<a href='/signup'> Đăng ký</a></span>
+
                 </div>
             </div>
         </div >

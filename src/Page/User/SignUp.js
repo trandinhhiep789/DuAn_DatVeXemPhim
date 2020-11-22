@@ -1,12 +1,22 @@
 import React, { useState } from 'react'
-// import './SignUp.scss'
+import { useDispatch } from 'react-redux'
+import { dangKyApiAction } from '../../redux/actions/QuanLyNguoiDungAction'
 export default function SignUp(props) {
+    const dispatch = useDispatch()
     const [error, setError] = useState({
         hoTen: "",
         phoneNumber: "",
         email: "",
     })
+
+
+    const [userSignup, setUserSignup] = useState({ taiKhoan: '', matKhau: '', email: '', soDt: '', maNhom: 'GP10', maLoaiNguoiDung: 'KhachHang', hoTen: '' })
+
+    console.log('userSignup', userSignup)
+
+
     const handleChangeInput = (e) => {
+        // Kiểm tra dữ liệu nhập vào
         let { name, value } = e.target;
         let types = e.target.getAttribute("types");
         let newErrors = { ...error };
@@ -30,7 +40,16 @@ export default function SignUp(props) {
                 newErrors[name] = "* Dữ liệu phải là chữ !";
             }
         }
+        // Lấy dữ liệu nhập vào
+        let newUserSignup = { ...userSignup, [name]: value };
+        setUserSignup(newUserSignup)
+        console.log(userSignup)
     }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        dispatch(await dangKyApiAction(userSignup))
+    }
+
     return (
         <div className='SignUp_content'>
             <div className='SignUp_loginPic'>
@@ -38,14 +57,14 @@ export default function SignUp(props) {
 
                 </div>
                 <div className='SignUp_login'>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <h1>Đăng ký</h1>
                         <hr />
                         <div className='form-group'>
                             <p className='title'>Tài khoản:</p>
                             <div className='formSigup'>
                                 <i class="fa fa-user-alt"></i>
-                                <input className='form-control' name='taiKhoan' placeholder='Tài khoản' />
+                                <input className='form-control' name='taiKhoan' placeholder='Tài khoản' onChange={handleChangeInput} />
                             </div>
 
                         </div>
@@ -53,7 +72,7 @@ export default function SignUp(props) {
                             <p className='title'>Mật khẩu:</p>
                             <div className='formSigup'>
                                 <i class="fa fa-lock"></i>
-                                <input type='password' className='form-control' name='matKhau' placeholder='Mật khẩu' />
+                                <input className='form-control' name='matKhau' placeholder='Mật khẩu' onChange={handleChangeInput} />
                             </div>
 
                         </div>
@@ -77,7 +96,7 @@ export default function SignUp(props) {
                             <p className='title'>Số điện thoại:</p>
                             <div className='formSigup'>
                                 <i class="fa fa-mobile-alt"></i>
-                                <input types='phoneNumber' name='phoneNumber' className='form-control' placeholder='Số điện thoại' onChange={handleChangeInput} />
+                                <input types='phoneNumber' name='soDt' className='form-control' placeholder='Số điện thoại' onChange={handleChangeInput} />
                             </div>
                             <p className="text-danger error">{error.phoneNumber}</p>
                         </div>
