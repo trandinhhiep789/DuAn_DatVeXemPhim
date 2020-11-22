@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { ACCESSTOKEN, USER_LOGIN, DOMAIN } from '../../Util/Config'
+import { ACCESSTOKEN, USER_LOGIN, DOMAIN, ACCOUNTLOGIN } from '../../Util/Config'
 import { history } from '../../Util/history'
 import swal from 'sweetalert2'
 
@@ -13,6 +13,7 @@ export const dangNhapApiAction = async (userLogin) => {
             })
             localStorage.setItem(USER_LOGIN, JSON.stringify(result.data));
             localStorage.setItem(ACCESSTOKEN, result.data.accessToken);
+            localStorage.setItem(ACCOUNTLOGIN, JSON.stringify(userLogin));
             swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
             history.push('/trangchu')
             dispatch({

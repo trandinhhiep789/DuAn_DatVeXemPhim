@@ -1,12 +1,16 @@
-const { USER_LOGIN } = require("../../Util/Config")
+const { USER_LOGIN, ACCOUNTLOGIN } = require("../../Util/Config")
 
+let accountLogin = {}
+if (localStorage.getItem(ACCOUNTLOGIN)) {
+    accountLogin = JSON.parse(localStorage.getItem(ACCOUNTLOGIN));
+}
 let userLogin = {}
 if (localStorage.getItem(USER_LOGIN)) {
     userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
 }
 const stateDefault = {
     userLogin: userLogin,
-    accountLogin: {},
+    accountLogin: accountLogin,
     bookingHistory: {}
 }
 export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
