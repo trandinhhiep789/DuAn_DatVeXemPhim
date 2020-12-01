@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { dangKyApiAction } from '../../redux/actions/QuanLyNguoiDungAction'
-export default function SignUp(props) {
+export default function DangKy(props) {
+    const [height, setHeight] = useState(window.innerHeight);
+    useEffect(() => {
+        window.onresize = function () {
+            setHeight(window.innerHeight);
+        }
+    }, []);
     const dispatch = useDispatch()
     const [error, setError] = useState({
         hoTen: "",
@@ -51,13 +57,13 @@ export default function SignUp(props) {
     }
 
     return (
-        <div className='SignUp_content'>
+        <div className='SignUp_content' style={{ height }}>
             <div className='SignUp_loginPic'>
                 <div className='SignUp_pic'>
 
                 </div>
                 <div className='SignUp_login'>
-                    <form onSubmit={handleSubmit}>
+                    <form style={{ width: '100%' }} onSubmit={handleSubmit}>
                         <h1>Đăng ký</h1>
                         <hr />
                         <div className='form-group'>

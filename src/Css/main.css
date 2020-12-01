@@ -443,9 +443,18 @@ footer .footer__copyright .footer__info span:first-child {
 }
 
 .Login_content .Login_loginPic .Login_login {
-  height: 100% !important;
+  height: 100%;
   width: 40%;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
 }
 
@@ -556,56 +565,43 @@ footer .footer__copyright .footer__info span:first-child {
   background: #da2aa4;
 }
 
-@media screen and (max-width: 576px) {
-  .Login_loginPic {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 0 !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-    overflow: scroll  !important;
+@media only screen and (max-width: 375px) {
+  .Login_content .Login_loginPic {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
-  .Login_loginPic .Login_pic {
+  .Login_content .Login_loginPic .Login_pic {
     display: none;
   }
-  .Login_loginPic .Login_login {
-    width: 100% !important;
-  }
-  .Login_loginPic .Login_login .text {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .Login_content .Login_loginPic .Login_login {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .Login_loginPic {
-    overflow: scroll  !important;
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+  .Login_content .Login_loginPic {
+    width: 70%;
+    height: 50%;
   }
-  .Login_loginPic .Login_pic {
-    display: none;
+  .Login_content .Login_loginPic .Login_pic {
+    width: 40%;
   }
-  .Login_loginPic .Login_login {
-    width: 100% !important;
-  }
-  .Login_pic {
-    display: none;
-  }
-  .Login_login {
-    width: 100% !important;
+  .Login_content .Login_loginPic .Login_login {
+    width: 60%;
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .Login_loginPic {
-    overflow: scroll !important;
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .Login_content .Login_loginPic {
+    width: 80%;
+    height: 50%;
   }
-  .Login_loginPic .Login_pic {
-    width: 40% !important;
+  .Login_content .Login_loginPic .Login_pic {
+    width: 50%;
   }
-  .Login_loginPic .Login_login {
-    width: 60% !important;
+  .Login_content .Login_loginPic .Login_login {
+    width: 50%;
   }
 }
 
@@ -694,43 +690,43 @@ footer .footer__copyright .footer__info span:first-child {
           box-shadow: none;
 }
 
-@media screen and (max-width: 576px) {
-  .SignUp_loginPic {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 0 !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
+@media only screen and (max-width: 375px) {
+  .SignUp_content .SignUp_loginPic {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
-  .SignUp_loginPic .SignUp_pic {
+  .SignUp_content .SignUp_loginPic .SignUp_pic {
     display: none;
   }
-  .SignUp_loginPic .SignUp_login {
-    width: 100% !important;
-  }
-  .SignUp_loginPic .SignUp_login .text {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .SignUp_content .SignUp_loginPic .SignUp_login {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .SignUp_pic {
-    display: none;
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+  .SignUp_content .SignUp_loginPic {
+    width: 70%;
+    height: 60%;
   }
-  .SignUp_login {
-    width: 100% !important;
+  .SignUp_content .SignUp_loginPic .SignUp_pic {
+    width: 40%;
+  }
+  .SignUp_content .SignUp_loginPic .SignUp_login {
+    width: 60%;
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .SignUp_pic {
-    width: 40% !important;
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .SignUp_content .SignUp_loginPic {
+    width: 80%;
+    height: 50%;
   }
-  .SignUp_login {
-    width: 60% !important;
+  .SignUp_content .SignUp_loginPic .SignUp_pic {
+    width: 50%;
+  }
+  .SignUp_content .SignUp_loginPic .SignUp_login {
+    width: 50%;
   }
 }
 
@@ -795,18 +791,69 @@ footer .footer__copyright .footer__info span:first-child {
   width: 100%;
 }
 
-@media screen and (max-width: 576px) {
-  .personalInfo_info .nav-tabs {
-    margin-left: 0 !important;
+.PersonalInfo_conent .personalInfo_info .history_booking .history_booking_right .info_ticket img {
+  width: 150px;
+  height: 150px;
+}
+
+.PersonalInfo_conent .personalInfo_info .history_booking .history_booking_right .info_ticket .info_ticket_text .theater_name {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.PersonalInfo_conent .personalInfo_info .history_booking .history_booking_right .info_ticket .info_ticket_text .movie_name {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.PersonalInfo_conent .personalInfo_info .history_booking .history_booking_right .info_ticket .info_ticket_text .movie_nameBinding {
+  color: red;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.PersonalInfo_conent .personalInfo_info .history_booking .history_booking_right .info_ticket .info_ticket_text .theater_chair {
+  color: black;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+@media only screen and (max-width: 375px) {
+  .PersonalInfo_conent .personalInfo_info .personal_title {
+    margin-left: 0;
   }
-  .personalInfo_info .personal_information_row {
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: column !important;
-            flex-direction: column !important;
+  .PersonalInfo_conent .personalInfo_info .personal_information_menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .personalInfo_info .personal_information_row .personalInfo_left, .personalInfo_info .personal_information_row .personalInfo_right {
+  .PersonalInfo_conent .personalInfo_info .personal_information_menu .personalInfo_left, .PersonalInfo_conent .personalInfo_info .personal_information_menu .personalInfo_right {
     max-width: 100%;
+  }
+  .PersonalInfo_conent .personalInfo_info .history_booking {
+    border: none;
+  }
+  .PersonalInfo_conent .personalInfo_info .history_booking .history_booking_content {
+    border: 1px solid;
+    padding: 5px;
+  }
+  .PersonalInfo_conent .personalInfo_info .history_booking .info_ticket {
+    margin: 0 !important;
+  }
+  .PersonalInfo_conent .personalInfo_info .history_booking .info_ticket img {
+    display: none;
+  }
+  .PersonalInfo_conent .personalInfo_info .history_booking .info_ticket .info_ticket_text {
+    margin: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+  .PersonalInfo_conent .personalInfo_info .history_booking .history_booking_right img {
+    width: 50%;
   }
 }
 

@@ -65,7 +65,7 @@ export default function Header() {
               </li>
               {userLogin.taiKhoan ?
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/personalInfo">Thông tin cá nhân</NavLink>
+                  <NavLink className="nav-link" to="/thongtincanhan">Thông tin cá nhân</NavLink>
                 </li>
                 : ''}
             </ul>
@@ -79,10 +79,10 @@ export default function Header() {
                   </li>
                   : (<>
                     <li className="nav-item">
-                      <NavLink className="nav-link" activeClassName='bg-dark text-white' to="/login">Đăng nhập</NavLink>
+                      <NavLink className="nav-link" activeClassName='bg-dark text-white' to="/dangnhap">Đăng nhập</NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" activeClassName='bg-dark text-white' to="/signup">Đăng ký</NavLink>
+                      <NavLink className="nav-link" activeClassName='bg-dark text-white' to="/dangky">Đăng ký</NavLink>
                     </li>
                   </>)}
               </ul>

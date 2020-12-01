@@ -54,10 +54,51 @@
             }
         }
     }
-   
-    
 }
-// @media only screen and (max-width: 500px) {
+@media only screen and (max-width: 375px){
+    .SignUp_content{
+        .SignUp_loginPic{
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            .SignUp_pic{
+                display: none;
+            }
+            .SignUp_login{
+                width: 100%;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 376px)  and (max-width: 768px){
+    .SignUp_content{
+        .SignUp_loginPic{
+            width: 70%;
+            height: 60%;
+            .SignUp_pic{
+                width: 40%;
+            }
+            .SignUp_login{
+                width: 60%;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    .SignUp_content{
+        .SignUp_loginPic{
+            width: 80%;
+            height: 50%;
+            .SignUp_pic{
+                width: 50%;
+            }
+            .SignUp_login{
+                width: 50%;
+            }
+        }
+    }
+}
+// @include responsive("small") {
 //     .SignUp_loginPic{
 //         width: 100% !important;
 //         height: 100% !important;
@@ -71,7 +112,7 @@
 //         }
 //     }
 // }
-// @media only screen and (min-width: 376px) and (max-width: 1024px) {
+// @include responsive("large") {
 //     .SignUp_pic{
 //         display: none;
 //     }
@@ -79,36 +120,11 @@
 //         width: 100% !important;
 //     }
 // }
-@include responsive("small") {
-    .SignUp_loginPic{
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        .SignUp_pic{
-            display: none;
-        }
-        .SignUp_login{
-            width: 100% !important;
-            .text{
-                flex-direction: column;
-            }
-        }
-    }
-}
-@include responsive("large") {
-    .SignUp_pic{
-        display: none;
-    }
-    .SignUp_login{
-        width: 100% !important;
-    }
-}
-@include responsive("extra-large") {
-    .SignUp_pic{
-        width: 40% !important;
-    }
-    .SignUp_login{
-        width: 60% !important;
-    }
-}
+// @include responsive("extra-large") {
+//     .SignUp_pic{
+//         width: 40% !important;
+//     }
+//     .SignUp_login{
+//         width: 60% !important;
+//     }
+// }

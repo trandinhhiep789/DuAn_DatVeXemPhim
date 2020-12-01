@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import style from "../../Css/main.css";
 import { useDispatch } from 'react-redux'
 import { dangNhapApiAction } from '../../redux/actions/QuanLyNguoiDungAction'
-export default function Login(props) {
+export default function DangNhap(props) {
     const [height, setHeight] = useState(window.innerHeight);
     useEffect(() => {
         window.onresize = function () {
@@ -26,9 +26,10 @@ export default function Login(props) {
             <div className='Login_loginPic'>
                 <div className='Login_pic'>
                     {/* <img src='../../assets/img/men.jpg' /> */}
+                    {/* <img src="./img/banner.jpg" /> */}
                 </div>
                 <div className='Login_login'>
-                    <form onSubmit={handleSubmit}>
+                    <form style={{ width: '100%' }} onSubmit={handleSubmit}>
                         <h1>Đăng nhập</h1>
                         <hr />
                         <div className='form-group'>
