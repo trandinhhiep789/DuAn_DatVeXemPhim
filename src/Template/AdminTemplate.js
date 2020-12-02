@@ -50,7 +50,7 @@ export const AdminTemplate = (props) => {
                             <Menu.Item key="3">
                                 <NavLink to='/admin/quanlyphim'>Quan ly phim</NavLink>
                             </Menu.Item>
-                            <Menu.Item key="4">Them moi phim (xài modal để thêm phim nhanh</Menu.Item>
+                            <Menu.Item key="4">Them moi phim (xài modal để thêm phim nhanh)</Menu.Item>
 
                         </SubMenu>
 

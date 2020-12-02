@@ -757,10 +757,6 @@ footer .footer__copyright .footer__info span:first-child {
           justify-content: center;
 }
 
-.chinhTheTd td {
-  vertical-align: unset;
-}
-
 .table-bordered td {
   border: none !important;
 }
@@ -817,5 +813,15 @@ footer .footer__copyright .footer__info span:first-child {
 .container-1 input#search:active {
   outline: none;
   background: #ffffff;
+}
+
+.site-calendar-demo-card {
+  width: 300px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+}
+
+.text-overflow {
+  text-overflow: ellipsis;
 }
 /*# sourceMappingURL=main.css.map */

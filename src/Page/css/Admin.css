@@ -18,10 +18,6 @@
           justify-content: center;
 }
 
-.chinhTheTd td {
-  vertical-align: unset;
-}
-
 .table-bordered td {
   border: none !important;
 }

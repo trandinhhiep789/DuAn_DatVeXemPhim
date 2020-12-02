@@ -53,13 +53,13 @@ export default function QuanLyPhim() {
                 <table className="table table-active table-striped table-bordered" >
                     <thead>
                         <tr>
-                            <th>ma phim</th>
-                            <th>ten phim</th>
-                            <th>hinh anh</th>
-                            <th>mo ta</th>
-                            <th>ma nhom</th>
-                            <th>ngay khoi chieu</th>
-                            <th></th>
+                            <th style={{ width: '10%' }}>Mã phim</th>
+                            <th style={{ width: '10%' }}>Tên phim</th>
+                            <th style={{ width: '10%' }}>Hình ảnh</th>
+                            <th style={{ width: '30%' }}>Mô tả</th>
+                            <th style={{ width: '5%' }}>Mã nhóm</th>
+                            <th style={{ width: '10%' }}>Ngày khởi chiếu</th>
+                            <th style={{ width: '30%' }}>Các chức năng</th>
                         </tr>
                     </thead>
                     <tbody className="chinhTheTd">
