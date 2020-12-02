@@ -17,4 +17,12 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.chinhTheTd td {
+  vertical-align: unset;
+}
+
+.table-bordered td {
+  border: none !important;
+}
 /*# sourceMappingURL=Admin.css.map */

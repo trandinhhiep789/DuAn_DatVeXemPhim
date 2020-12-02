@@ -1,46 +1,7 @@
-// import React from 'react'
-// import 'antd/dist/antd.css'
-// import { NavLink, Route, Router } from 'react-router-dom'
-
-
-// import { Layout, Menu, Breadcrumb } from 'antd';
-
-// const { Header, Content, Footer } = Layout;
-
-// export const AdminTemplate = (props) => {
-
-//     const { Component, ...restParams } = props
-
-//     return <Route {...restParams} render={(propsRoute) => {
-//         // const {ckollapsed} = state
-//         return <>
-//             <Layout className="layout">
-//                 <Header>
-//                     <div className="logo" />
-//                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-//                         <Menu.Item key="1">nav 1</Menu.Item>
-//                         <Menu.Item key="2">nav 2</Menu.Item>
-//                         <Menu.Item key="3">nav 3</Menu.Item>
-//                     </Menu>
-//                 </Header>
-//                 <Content style={{ padding: '0 50px' }}>
-//                     <Breadcrumb style={{ margin: '16px 0' }}>
-//                         <Breadcrumb.Item>Home</Breadcrumb.Item>
-//                         <Breadcrumb.Item>List</Breadcrumb.Item>
-//                         <Breadcrumb.Item>App</Breadcrumb.Item>
-//                     </Breadcrumb>
-//                     <div className="site-layout-content">Content</div>
-//                 </Content>
-//                 <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-//             </Layout>
-//         </>
-//     }} />
-// }
-
-
 import React, { useState } from 'react'
 import { NavLink, Route, Router } from 'react-router-dom'
 import 'antd/dist/antd.css'
+import logo from './movie2.gif';
 
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
@@ -77,10 +38,11 @@ export const AdminTemplate = (props) => {
                     <div className="logo" />
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
 
+                        {/* https://picsum.photos/50/50 */}
                         <div className="py-4 text-center">
-                            <img src="../assets/img/movielogin.jpg" style={{ borderRadius: '50%', width: 50, height: 50 }} />
+                            <img src={logo} style={{ borderRadius: '50%', width: 50, height: 50 }} />
                             {!collapsed ? <div className="mt-3 ml-1">
-                                <span>ELTR</span>
+                                <span>ELTR (sẽ biding tên admin)</span>
                             </div> : ''}
                         </div>
 

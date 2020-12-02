@@ -757,6 +757,14 @@ footer .footer__copyright .footer__info span:first-child {
           justify-content: center;
 }
 
+.chinhTheTd td {
+  vertical-align: unset;
+}
+
+.table-bordered td {
+  border: none !important;
+}
+
 .container-1 {
   width: 100%;
   vertical-align: middle;

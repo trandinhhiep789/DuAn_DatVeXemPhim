@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Film from './Film/Film'
+import Pagination from './Film/Pagination'
 
 
 // khung tim kiem phim < br />
@@ -8,7 +11,34 @@ import React from 'react'
 
 //thêm phim coi thức năng drawer của antdesign 
 
+
+
+
 export default function QuanLyPhim() {
+
+    const [posts, setPosts] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postPerPage, setPostPerPage] = useState(5)
+    console.log(posts)
+    useEffect(() => {
+        const fetchPost = async () => {
+            setLoading(true)
+            const res = await axios.get('https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim')
+            setPosts(res.data)
+            setLoading(false)
+        }
+        fetchPost()
+    }, [])
+
+    // Get current posts
+    const indexOfLastPost = currentPage * postPerPage
+    const indexOfFistPost = indexOfLastPost - postPerPage
+    const currentPosts = posts.slice(indexOfFistPost, indexOfLastPost)
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
     return (
         <div className="container">
 
@@ -32,24 +62,17 @@ export default function QuanLyPhim() {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">ma phim</td>
-                            <td>ten phim</td>
-                            <td>hinh anh</td>
-                            <td>mo ta</td>
-                            <td>ma nhom</td>
-                            <td>ngay khoi chieu</td>
-                            <td className="d-flex text-center justify-content-center">
-                                <button className="btn mx-3 btn-outline-success">them</button>
-                                <button className="btn mx-3 btn-outline-info">sửa</button>
-                                <button className="btn mx-3 btn-outline-danger">xóa</button>
-                            </td>
-                        </tr>
+                    <tbody className="chinhTheTd">
+
+                        <Film posts={currentPosts} loading={loading} />
+
                     </tbody>
+
                 </table>
+                <Pagination postPerPage={postPerPage} totalPosts={posts.length} paginate={paginate} />
             </div>
 
         </div>
     )
 }
+
