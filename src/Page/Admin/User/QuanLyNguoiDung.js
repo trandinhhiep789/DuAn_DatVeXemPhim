@@ -1,31 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Film from './Film/Film'
-import Pagination from './Film/Pagination'
-import ThemPhimTemplate from './Film/ThemPhimMoi'
+import Pagination from '../Film/Pagination'
+import User from '../User/User'
+import ThemNguoiDungMoi from '../User/ThemNguoiDungMoi'
 
-
-// khung tim kiem phim < br />
-//     bang render ra danh sach phim < br />
-//         coi pagination phần qua trang của table < br />
-//             chỗ thêm hay hay chỗ nào cần loading thì xài  spinner
-
-//thêm phim coi thức năng drawer của antdesign 
-
-
-
-
-export default function QuanLyPhim() {
+export default function QuanLyNguoiDung() {
 
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [postPerPage, setPostPerPage] = useState(5)
+    const [postPerPage, setPostPerPage] = useState(40)
     console.log(posts)
     useEffect(() => {
         const fetchPost = async () => {
             setLoading(true)
-            const res = await axios.get('https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim')
+            const res = await axios.get('https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung')
             setPosts(res.data)
             setLoading(false)
         }
@@ -43,13 +32,13 @@ export default function QuanLyPhim() {
     return (
         <div className="container">
             <div className="m-3">
-                <ThemPhimTemplate />
+                <ThemNguoiDungMoi />
             </div>
 
             {/* khung tim kiếm */}
             <div className="container-1">
                 <span className="icon"><i className="fa fa-search"></i></span>
-                <input type="search" id="search" placeholder="Nhập vào tên bộ phim hoặc mã bộ phim cần tìm... " style={{ width: "100%" }} />
+                <input type="search" id="search" placeholder="Nhập vào tài khoản hoặc họ tên người dùng... " style={{ width: "100%" }} />
             </div>
 
             {/* bảng danh sách tất cả bộ phim */}
@@ -57,18 +46,16 @@ export default function QuanLyPhim() {
                 <table className="table table-active table-striped table-bordered" >
                     <thead>
                         <tr>
-                            <th style={{ width: '10%' }}>Mã phim</th>
-                            <th style={{ width: '10%' }}>Tên phim</th>
-                            <th style={{ width: '10%' }}>Hình ảnh</th>
-                            <th style={{ width: '30%' }}>Mô tả</th>
-                            <th style={{ width: '5%' }}>Mã nhóm</th>
-                            <th style={{ width: '10%' }}>Ngày khởi chiếu</th>
-                            <th style={{ width: '30%' }}>Các chức năng</th>
+                            {/* <th style={{ width: '10%' }}>STT</th> */}
+                            <th style={{ width: '15%' }}>Tài khoản</th>
+                            <th style={{ width: '15%' }}>Mật khẩu</th>
+                            <th style={{ width: '15%' }}>Email</th>
+                            <th style={{ width: '15%' }}>Số điện thoại</th>
+                            <th style={{ width: '30%' }}>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody className="chinhTheTd">
-
-                        <Film posts={currentPosts} loading={loading} />
+                        <User posts={currentPosts} loading={loading} />
 
                     </tbody>
 

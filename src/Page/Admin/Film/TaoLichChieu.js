@@ -12,28 +12,28 @@ export default function TaoLichChieu() {
 
             <div>
                 {/* Button trigger modal */}
-                <button type="button" className="btn btn-outline-success " data-toggle="modal" data-target="#exampleModal">
+                <button type="button" className="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
                     Tạo lịch chiếu
                 </button>
                 {/* Modal */}
                 <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Tạo lịch chiếu</h5>
+                            <div className="modal-header bg-info" >
+                                <h5 className="modal-title text-white" id="exampleModalLabel">Tạo lịch chiếu</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
+                                    <span aria-hidden="true" className="text-white">×</span>
                                 </button>
                             </div>
-                            <div className="modal-body">
-                                <div className="m-3 border-bottom">
+                            <div className="modal-body" style={{ backgroundColor: "rgb(225 226 225)" }}>
+                                <div className="m-3 border-bottom border-primary">
                                     <h3>THÔNG TIN LỊCH CHIẾU CỦA PHIM (SẼ BIDING RA)</h3>
                                 </div>
 
                                 <div>
                                     {/* chon he thong rap */}
                                     <div className="dropdown m-3">
-                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "#1976d2" }}>
                                             Chọn hệ thống rạp
                                     </button>
                                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -43,7 +43,7 @@ export default function TaoLichChieu() {
 
                                     {/* chon cup rap */}
                                     <div className="dropdown m-3">
-                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "#1976d2" }}>
                                             Chọn cụm rạp
                                     </button>
                                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -53,7 +53,7 @@ export default function TaoLichChieu() {
 
                                     {/* chon rap */}
                                     <div className="dropdown m-3">
-                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "#1976d2" }}>
                                             Chọn rạp
                                     </button>
                                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -68,24 +68,24 @@ export default function TaoLichChieu() {
                                     <DrawerForm />
                                 </div>
 
-                                <div className="mx-3 form-group">
-                                    <h5>Thời lượng phim</h5>
-                                    <input type="text" className="form-control" id="maSinhVien" />
+                                <div className="row mx-3 form-group">
+                                    <h5 className="col-4" style={{ padding: 0 }}>Thời lượng phim</h5>
+                                    <input type="text" className="form-control col-8" id="maSinhVien" />
                                 </div>
-                                <div className="mx-3 form-group">
-                                    <h5>Mã nhóm (mặc định)</h5>
-                                    <input type="text" className="form-control" id="maSinhVien" />
+                                <div className="row mx-3 form-group">
+                                    <h5 className="col-4" style={{ padding: 0 }}>Mã nhóm (mặc định)</h5>
+                                    <input type="text" className="form-control col-8" id="maSinhVien" />
                                 </div>
-                                <div className="mx-3 form-group">
-                                    <h5>Gía vé</h5>
-                                    <input type="text" className="form-control" id="maSinhVien" />
+                                <div className="row mx-3 form-group">
+                                    <h5 className="col-4" style={{ padding: 0 }}>Giá vé</h5>
+                                    <input type="text" className="form-control col-8" id="maSinhVien" />
                                 </div>
 
 
                             </div>
-                            <div className="modal-footer">
+                            <div className="modal-footer " style={{ backgroundColor: "rgb(225 226 225)" }}>
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Save changes</button>
+                                <button type="button" className="btn text-white" style={{ backgroundColor: "#1976d2" }}>Save changes</button>
                             </div>
                         </div>
                     </div>

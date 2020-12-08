@@ -7,10 +7,13 @@ import { Route, Switch } from 'react-router-dom';
 import PersonalInfo from './Page/User/PersonalInfo';
 import { AdminTemplate } from './Template/AdminTemplate';
 import Admin from './Page/Admin/Admin';
-import QuanLyNguoiDung from './Page/Admin/QuanLyNguoiDung'
+import QuanLyNguoiDung from './Page/Admin/User/QuanLyNguoiDung'
 import QuanLyPhim from './Page/Admin/QuanLyPhim'
 import TaoLichChieu from './Page/Admin/Film/TaoLichChieu';
 import DrawerForm from './Page/Admin/Film/DrawerForm';
+import ThemFilm from './Page/Admin/Film/ThemFilm';
+import ThemPhimTemplate from './Page/Admin/Film/ThemPhimMoi';
+import ThemNguoiDung from './Page/Admin/User/ThemNguoiDung';
 
 function App() {
   return (
@@ -27,7 +30,9 @@ function App() {
         <AdminTemplate exact path='/admin/quanlyphim' Component={QuanLyPhim} />
 
       </Switch>
-      {/* <TaoLichChieu /> */}
+      {/* <ThemFilm />
+      <ThemPhimTemplate /> */}
+      {/* <ThemNguoiDung /> */}
 
       {/* <Footer /> */}
     </>

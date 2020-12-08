@@ -50,7 +50,7 @@ export const AdminTemplate = (props) => {
                             <Menu.Item key="3">
                                 <NavLink to='/admin/quanlyphim'>Quan ly phim</NavLink>
                             </Menu.Item>
-                            <Menu.Item key="4">Them moi phim (xài modal để thêm phim nhanh)</Menu.Item>
+                            {/* <Menu.Item key="4">Them moi phim (xài modal để thêm phim nhanh)</Menu.Item> */}
 
                         </SubMenu>
 
@@ -58,9 +58,9 @@ export const AdminTemplate = (props) => {
                             <Menu.Item key="6">
                                 <NavLink to='/admin/quanlynguoidung'>Quan ly nguoi dung</NavLink>
                             </Menu.Item>
-                            <Menu.Item key="8">
+                            {/* <Menu.Item key="8">
                                 Them moi nguoi dung
-                            </Menu.Item>
+                            </Menu.Item> */}
                         </SubMenu>
 
                         {/* <Menu.Item key="9" icon={<FileOutlined />}>
@@ -73,8 +73,10 @@ export const AdminTemplate = (props) => {
                     <Header className="site-layout-background" style={{ padding: 0 }} />
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                            {/* <Breadcrumb.Item>User</Breadcrumb.Item>
+                            <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
+
+
                         </Breadcrumb>
                         <Component {...propsRoute} className="site-layout-background" style={{ padding: 24, minHeight: 360 }} />
 
