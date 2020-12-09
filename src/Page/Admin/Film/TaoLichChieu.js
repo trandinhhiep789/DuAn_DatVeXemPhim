@@ -19,8 +19,8 @@ export default function TaoLichChieu() {
                 <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
-                            <div className="modal-header bg-info" >
-                                <h5 className="modal-title text-white" id="exampleModalLabel">Tạo lịch chiếu</h5>
+                            <div className="modal-header" style={{ backgroundColor: "rgb(225 226 225)" }}>
+                                <h4 className="modal-title text-info mx-3" id="exampleModalLabel" >Tạo lịch chiếu</h4>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true" className="text-white">×</span>
                                 </button>
@@ -33,7 +33,7 @@ export default function TaoLichChieu() {
                                 <div>
                                     {/* chon he thong rap */}
                                     <div className="dropdown m-3">
-                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "#1976d2" }}>
+                                        <button className="btn btn-info dropdown-toggle bg-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                             Chọn hệ thống rạp
                                     </button>
                                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -43,7 +43,7 @@ export default function TaoLichChieu() {
 
                                     {/* chon cup rap */}
                                     <div className="dropdown m-3">
-                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "#1976d2" }}>
+                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                             Chọn cụm rạp
                                     </button>
                                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -53,7 +53,7 @@ export default function TaoLichChieu() {
 
                                     {/* chon rap */}
                                     <div className="dropdown m-3">
-                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "#1976d2" }}>
+                                        <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                             Chọn rạp
                                     </button>
                                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -85,7 +85,7 @@ export default function TaoLichChieu() {
                             </div>
                             <div className="modal-footer " style={{ backgroundColor: "rgb(225 226 225)" }}>
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn text-white" style={{ backgroundColor: "#1976d2" }}>Save changes</button>
+                                <button type="button" className="btn text-white bg-info" >Save changes</button>
                             </div>
                         </div>
                     </div>
