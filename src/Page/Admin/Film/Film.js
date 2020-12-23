@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import TaoLichChieu from './TaoLichChieu'
 
-export const Film = ({ posts, loading }) => {
+
+import { useSelector, useDispatch } from 'react-redux'
+
+export const Film = ({ posts, loading, onDelete }) => {
 
     if (loading) {
         return <h2>loading...</h2>
     }
 
+
+    // const dispatch = useDispatch()
+
+    // useEffect((maPhim) => {
+    //     dispatch(deleteFilm(maPhim))
+    // }, [])
+
+
     return (
+
         //cách viết 2
         <>
             {posts.map(post => (
@@ -21,7 +33,7 @@ export const Film = ({ posts, loading }) => {
                     <td className="d-flex justify-content-center">
                         <TaoLichChieu />
                         <button className="btn mx-3 btn-outline-info">sửa</button>
-                        <button className="btn btn-outline-danger">X</button>
+                        <button className="btn btn-outline-danger" onClick={() => onDelete(post.maPhim, post.maLoaiNguoiDung)} >X</button>
                     </td>
                 </tr>
 

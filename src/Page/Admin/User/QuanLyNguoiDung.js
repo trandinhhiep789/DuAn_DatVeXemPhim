@@ -9,7 +9,7 @@ export default function QuanLyNguoiDung() {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [postPerPage, setPostPerPage] = useState(40)
+    const [postPerPage, setPostPerPage] = useState(5)
     console.log(posts)
     useEffect(() => {
         const fetchPost = async () => {
@@ -51,7 +51,8 @@ export default function QuanLyNguoiDung() {
                             <th style={{ width: '15%' }}>Mật khẩu</th>
                             <th style={{ width: '15%' }}>Email</th>
                             <th style={{ width: '15%' }}>Số điện thoại</th>
-                            <th style={{ width: '30%' }}>Thao tác</th>
+                            <th style={{ width: '15%' }}>Loại người dùng</th>
+                            <th style={{ width: '25%' }}>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody className="chinhTheTd">

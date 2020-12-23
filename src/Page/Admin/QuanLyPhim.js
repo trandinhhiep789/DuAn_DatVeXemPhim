@@ -3,7 +3,9 @@ import axios from 'axios'
 import Film from './Film/Film'
 import Pagination from './Film/Pagination'
 import ThemPhimTemplate from './Film/ThemPhimMoi'
+import { deleteFilm, layDanhSachPhimApiAction } from '../../redux/actions/QuanLyPhimAction'
 
+import { useSelector, useDispatch } from 'react-redux'
 
 // khung tim kiem phim < br />
 //     bang render ra danh sach phim < br />
@@ -16,6 +18,13 @@ import ThemPhimTemplate from './Film/ThemPhimMoi'
 
 
 export default function QuanLyPhim() {
+
+
+
+
+    const dispatch = useDispatch()
+
+
 
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
@@ -30,7 +39,10 @@ export default function QuanLyPhim() {
             setLoading(false)
         }
         fetchPost()
+        dispatch(layDanhSachPhimApiAction())
+
     }, [])
+
 
     // Get current posts
     const indexOfLastPost = currentPage * postPerPage
@@ -39,7 +51,7 @@ export default function QuanLyPhim() {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
+    const xoaPhim = (maPhim, maLoaiNguoiDung) => dispatch(deleteFilm(maPhim, maLoaiNguoiDung));
     return (
         <div className="container">
             <div className="m-3">
@@ -68,7 +80,7 @@ export default function QuanLyPhim() {
                     </thead>
                     <tbody className="chinhTheTd">
 
-                        <Film posts={currentPosts} loading={loading} />
+                        <Film posts={currentPosts} loading={loading} onDelete={xoaPhim} />
 
                     </tbody>
 
