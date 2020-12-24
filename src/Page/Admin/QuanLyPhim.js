@@ -51,6 +51,9 @@ export default function QuanLyPhim() {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+
+
     const xoaPhim = (maPhim, maLoaiNguoiDung) => dispatch(deleteFilm(maPhim, maLoaiNguoiDung));
     return (
         <div className="container">

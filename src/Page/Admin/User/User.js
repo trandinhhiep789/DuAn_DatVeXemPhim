@@ -9,13 +9,16 @@ export const Film = ({ posts, loading }) => {
     return (
         //cách viết 2
         <>
+
             {posts.map(post => (
+
                 <tr>
                     <td scope="row">{post.taiKhoan}</td>
                     <td>{post.matKhau}</td>
                     <td>{post.email}</td>
                     <td>{post.soDt}</td>
                     <td>{post.maLoaiNguoiDung}</td>
+
                     <td className="d-flex justify-content-center">
                         <button className="btn btn-outline-success">Ghi danh</button>
                         <button className="btn mx-3 btn-outline-info">sửa</button>

@@ -109,13 +109,14 @@ export const deleteFilmError = (data) => {
 
 
 
-export const deleteFilm = (maPhim, maLoaiNguoiDung) => {
+export const deleteFilm = (maPhim, token) => {
 
 
 
 
     return (dispatch) => {
-        if (maLoaiNguoiDung === "QuanTri") {
+        alert(token);
+        if (token === "QuanTri") {
             console.log('huhuhhuhuhuhuhuhuhuhuhhuhuhuhuhuhuhuhuhuh')
 
             console.log(maPhim)

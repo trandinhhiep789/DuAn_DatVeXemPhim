@@ -10,35 +10,30 @@ export const dangNhapAction = (userLogin) => {
         const promise = Axios({
             url: DOMAIN + '/api/quanlynguoidung/dangnhap',
             method: 'POST',
-            data: userLogin
+            data: userLogin,
         })
 
         promise.then(res => {
             //dang nhap thanh cong luu thong tin nguoi dung vao localstorage
-            localStorage.setItem(USER_LOGIN, JSON.stringify(res.data));
-            localStorage.setItem(ACCESSTOKEN, res.data.accessToken);
+            localStorage.setItem(USER_LOGIN, JSON.stringify(res.userLogin));
+
             swal.fire('Đăng nhập thành công', `Xin chào ${userLogin.taiKhoan}`, 'success')
-            if (userLogin.maLoaiNguoiDung === "QuanTri") {
+
+            // userLogin này trên API chi coi duoc tai khoan voi mat khau thoi
+            if (res.data.maLoaiNguoiDung == "QuanTri") {
                 history.push('/admin')
                 // dispatch gia tri len reducer
+                // alert(res.data.maLoaiNguoiDung)
                 dispatch({
                     type: 'DANG_NHAP',
-                    userLogin: res.data
+                    userLogin: res.data,
+
                 })
 
-                const loihua = Axios({
-                    url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP01&tuKhoa=${userLogin.taiKhoan}`,
-                    method: 'GET',
-                    data: userLogin.taiKhoan
-                })
-                loihua.then(res => {
-                    dispatch({
-                        type: 'TIM_KIEM_NGUOI_DUNG',
-                        userLogin: res.data
-                    })
-                })
             }
             else {
+
+                alert(`  s   +  s${userLogin.maLoaiNguoiDung}`);
 
                 history.push('/personalinfo')
                 // dispatch gia tri len reducer
