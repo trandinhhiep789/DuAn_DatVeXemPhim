@@ -12,9 +12,17 @@ import {
     UserOutlined,
     ReconciliationOutlined
 } from '@ant-design/icons';
+// import { useSelector } from 'react-redux';
+
+import { connect } from 'react-redux'
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+
+//ko xài dc
+// const user = useSelector(state => state.userLogin)
+
+
 
 export const AdminTemplate = (props) => {
 
@@ -42,7 +50,7 @@ export const AdminTemplate = (props) => {
                         <div className="py-4 text-center">
                             <img src={logo} style={{ borderRadius: '50%', width: 50, height: 50 }} />
                             {!collapsed ? <div className="mt-3 ml-1">
-                                <span>ELTR (sẽ biding tên admin)</span>
+                                <span>ELTR xin chào </span>
                             </div> : ''}
                         </div>
 
@@ -88,3 +96,12 @@ export const AdminTemplate = (props) => {
         </>
     }} />
 }
+
+const mapStateToProps = state => {
+    return {
+        userLogin: state.QuanLyNguoiDungReducer,
+    }
+}
+export default connect(mapStateToProps)(AdminTemplate)
+
+

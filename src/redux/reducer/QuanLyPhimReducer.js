@@ -1,4 +1,5 @@
 import { DELETE_FILM_ERROR, DELETE_FILM_SUCCESS, LAY_DANH_SACH_PHIM_ACTION } from "../const/QuanLyPhimConst"
+import swal from 'sweetalert2'
 
 
 const stateDefault = {
@@ -23,10 +24,10 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
         }
 
         case DELETE_FILM_SUCCESS: {
+
+            swal.fire('Xóa thành công', ``, 'success')
             const filterFilms = state.dsPhim.filter(film => film.maPhim !== action.maPhim)
-            console.log(state.dsPhim)
-            console.log(action.maPhim)
-            console.log('vo reducer')
+            alert('vo reducer')
             return { ...state, films: filterFilms }
         }
 

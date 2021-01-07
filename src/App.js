@@ -9,13 +9,11 @@ import { AdminTemplate } from './Template/AdminTemplate';
 import Admin from './Page/Admin/Admin';
 import QuanLyNguoiDung from './Page/Admin/User/QuanLyNguoiDung'
 import QuanLyPhim from './Page/Admin/QuanLyPhim'
-import TaoLichChieu from './Page/Admin/Film/TaoLichChieu';
-import DrawerForm from './Page/Admin/Film/DrawerForm';
-import ThemFilm from './Page/Admin/Film/ThemFilm';
-import ThemPhimTemplate from './Page/Admin/Film/ThemPhimMoi';
-import ThemNguoiDung from './Page/Admin/User/ThemNguoiDung';
+import { useSelector, useDispatch } from 'react-redux'
 
 function App() {
+
+
   return (
     <>
       {/* <Header /> */}

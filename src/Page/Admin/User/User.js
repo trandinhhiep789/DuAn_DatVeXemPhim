@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Film = ({ posts, loading }) => {
+export const Film = ({ posts, loading, userLogin, onDelete }) => {
 
     if (loading) {
         return <h2>loading...</h2>
@@ -22,7 +22,7 @@ export const Film = ({ posts, loading }) => {
                     <td className="d-flex justify-content-center">
                         <button className="btn btn-outline-success">Ghi danh</button>
                         <button className="btn mx-3 btn-outline-info">sửa</button>
-                        <button className="btn btn-outline-danger">X</button>
+                        <button className="btn btn-outline-danger" onClick={() => onDelete(post.taiKhoan, userLogin.maLoaiNguoiDung)}>X</button>
                     </td>
                 </tr>
 

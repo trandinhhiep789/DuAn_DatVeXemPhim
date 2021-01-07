@@ -1,6 +1,9 @@
 import { DELETE_FILM_ERROR, DELETE_FILM_SUCCESS, LAY_DANH_SACH_PHIM_ACTION } from "../const/QuanLyPhimConst"
 import Axios from 'axios'
 import { configure } from "@testing-library/react"
+import { DOMAIN, USER_LOGIN, ACCESSTOKEN } from '../../Util/Config'
+
+
 
 //------------------action gọi API  (khong dispatch dữ liệu trực tiếp lên reducer)------------------
 
@@ -94,9 +97,11 @@ export const layDanhSachPhimApi = (dataphim) => {
 //DELETE---------------------------------------------------------
 
 export const deleteFilmSuccess = (maPhim) => {
+
     return {
         type: DELETE_FILM_SUCCESS,
-        maPhim,
+        data: maPhim,
+        headers: { 'Authorization': 'Bearer ' + localStorage.getItem(ACCESSTOKEN) }
     }
 }
 
@@ -109,29 +114,55 @@ export const deleteFilmError = (data) => {
 
 
 
-export const deleteFilm = (maPhim, token) => {
+export const deleteFilm = (maPhim, maLoaiNguoiDung) => {
 
 
 
+    return async (dispatch) => {
+        alert('access nha')
+        alert(localStorage.getItem(ACCESSTOKEN));
+        if (maLoaiNguoiDung === "QuanTri") {
 
-    return (dispatch) => {
-        alert(token);
-        if (token === "QuanTri") {
-            console.log('huhuhhuhuhuhuhuhuhuhuhhuhuhuhuhuhuhuhuhuh')
+            // dispatch({
+            //     url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+            //     method: 'delete',
+            //     type: DELETE_FILM_SUCCESS,
+            //     data: maPhim,
+            //     header: { 'Authorization': 'Bearer ' + localStorage.getItem(ACCESSTOKEN) }
+            // })
 
-            console.log(maPhim)
-            return Axios.delete(`
-        https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`)
+            // let { data, status } = await Axios({
+            //     url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+            //     method: 'DELETE',
+            //     data: maPhim,
+            //     headers: { 'Authorization': 'Bearer ' + localStorage.getItem(ACCESSTOKEN) }
+
+
+            // })
+            // console.log(data)
+
+            alert(maPhim)
+
+            return Axios.delete(`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+                { data: { source: maPhim }, headers: { Authorization: 'Bearer ' + localStorage.getItem(ACCESSTOKEN) } })
                 .then(() => {
-                    dispatch(deleteFilmSuccess(maPhim))
+                    dispatch({
+                        data: maPhim,
+                        // header: { 'Authorization': 'Bearer ' + localStorage.getItem(ACCESSTOKEN) }
+                    })
                 }).catch((err) => {
-                    const errorPayLoad = {}
+                    // const errorPayLoad = {}
 
-                    errorPayLoad['message'] = err.response.data.message
-                    errorPayLoad['status'] = err.response.status
+                    // errorPayLoad['message'] = err.response.data.message
+                    // errorPayLoad['status'] = err.response.status
 
-                    dispatch(deleteFilmError(errorPayLoad))
+                    // dispatch(deleteFilmError(errorPayLoad))
+
+                    console.log("Lỗi API (xóa thành công)")
                 })
+
+
+
         }
         else {
             alert("CHỈ QUẢN TRỊ MỚI XÓA ĐƯỢC");

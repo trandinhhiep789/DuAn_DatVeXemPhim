@@ -6,7 +6,7 @@ import { dangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction'
 
 export default function Login(props) {
     const dispatch = useDispatch()
-    const [userLogin, setUserLogin] = useState({ taiKhoan: 'tai khoan nha', matKhau: 'mat khau nha' })
+    const [userLogin, setUserLogin] = useState({ taiKhoan: '', matKhau: '' })
     console.log(userLogin)
 
     const handleChange = (e) => {

@@ -4,7 +4,7 @@ import TaoLichChieu from './TaoLichChieu'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-export const Film = ({ posts, loading, onDelete }) => {
+export const Film = ({ posts, loading, userLogin, onDelete }) => {
 
     if (loading) {
         return <h2>loading...</h2>
@@ -33,7 +33,7 @@ export const Film = ({ posts, loading, onDelete }) => {
                     <td className="d-flex justify-content-center">
                         <TaoLichChieu />
                         <button className="btn mx-3 btn-outline-info">sửa</button>
-                        <button className="btn btn-outline-danger" onClick={() => onDelete(post.maPhim, post.accessToken)} >X</button>
+                        <button className="btn btn-outline-danger" onClick={() => onDelete(post.maPhim, userLogin.maLoaiNguoiDung)} >X</button>
                     </td>
                 </tr>
 

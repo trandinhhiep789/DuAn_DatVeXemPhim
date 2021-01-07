@@ -6,6 +6,7 @@ import ThemPhimTemplate from './Film/ThemPhimMoi'
 import { deleteFilm, layDanhSachPhimApiAction } from '../../redux/actions/QuanLyPhimAction'
 
 import { useSelector, useDispatch } from 'react-redux'
+import { USER_LOGIN } from '../../Util/Config'
 
 // khung tim kiem phim < br />
 //     bang render ra danh sach phim < br />
@@ -23,6 +24,7 @@ export default function QuanLyPhim() {
 
 
     const dispatch = useDispatch()
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
 
 
 
@@ -42,6 +44,14 @@ export default function QuanLyPhim() {
         dispatch(layDanhSachPhimApiAction())
 
     }, [])
+
+    // useEffect(() => {
+    //     const config = {
+    //         headers: {
+    //             Authorization: 'Bearer' + localStorage.getItem(USER_LOGIN.accessToken)
+    //         }
+    //     }
+    // }, [])
 
 
     // Get current posts
@@ -83,7 +93,7 @@ export default function QuanLyPhim() {
                     </thead>
                     <tbody className="chinhTheTd">
 
-                        <Film posts={currentPosts} loading={loading} onDelete={xoaPhim} />
+                        <Film posts={currentPosts} loading={loading} userLogin={userLogin} onDelete={xoaPhim} />
 
                     </tbody>
 

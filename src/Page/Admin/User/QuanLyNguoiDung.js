@@ -3,13 +3,16 @@ import axios from 'axios'
 import Pagination from '../Film/Pagination'
 import User from '../User/User'
 import ThemNguoiDungMoi from '../User/ThemNguoiDungMoi'
+import { deleteUser } from '../../../redux/actions/QuanLyNguoiDungAction'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function QuanLyNguoiDung() {
 
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [postPerPage, setPostPerPage] = useState(5)
+    const [postPerPage, setPostPerPage] = useState(50)
     console.log(posts)
     useEffect(() => {
         const fetchPost = async () => {
@@ -28,6 +31,12 @@ export default function QuanLyNguoiDung() {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+    const dispatch = useDispatch()
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
+
+
+    const xoaNguoiDung = (taiKhoan, maLoaiNguoiDung) => dispatch(deleteUser(taiKhoan, maLoaiNguoiDung));
 
     return (
         <div className="container">
@@ -56,7 +65,7 @@ export default function QuanLyNguoiDung() {
                         </tr>
                     </thead>
                     <tbody className="chinhTheTd">
-                        <User posts={currentPosts} loading={loading} />
+                        <User posts={currentPosts} loading={loading} userLogin={userLogin} onDelete={xoaNguoiDung} />
 
                     </tbody>
 
