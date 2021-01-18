@@ -21,11 +21,11 @@ export default function ThemPhimTemplate() {
         });
     };
 
-    const onClose = () => {
-        setState({
-            visible: false,
-        });
-    };
+    // const onClose = () => {
+    //     setState({
+    //         visible: false,
+    //     });
+    // };
 
     return (
         <div className="" >
@@ -36,7 +36,7 @@ Thêm phim
             <Drawer
                 title="Thêm phim mới"
                 width={720}
-                onClose={onClose}
+                // onClose={onClose}
                 visible={state.visible}
                 bodyStyle={{ paddingBottom: 80 }}
                 footer={
@@ -45,9 +45,9 @@ Thêm phim
                             textAlign: 'right',
                         }}
                     >
-                        <Button onClick={onClose} style={{ marginRight: 8 }}>
+                        {/* <Button onClick={onClose} style={{ marginRight: 8 }}>
                             Cancel
-              </Button>
+              </Button> */}
 
                     </div>
                 }

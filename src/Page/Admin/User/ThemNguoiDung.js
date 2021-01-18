@@ -1,22 +1,93 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Axios from 'axios'
+import { ACCESSTOKEN } from '../../../Util/Config'
+import { useDispatch } from 'react-redux';
+
+
 
 export default function ThemNguoiDung() {
+
+    const [user, setUser] = useState({
+        taiKhoan: '',
+        email: '',
+        matKhau: '',
+        maNhom: 'GP01',
+        soDt: '',
+        maLoaiNguoiDung: 'KhachHang',
+    })
+
+    const handleChange = (e) => {
+        let { value, name } = e.target;
+        // Thay đổi giá trị thuộc tính đang onChange
+        let newUser = { ...user, [name]: value };
+        // Set lại state của userLogin = giá trị mới
+        setUser(newUser)
+        console.log(newUser);
+    }
+
+    const dispatch = useDispatch()
+
+    const handleSubmit = (e) => {
+        //chặn sự kiện load lại
+        e.preventDefault()
+
+        var form_data = new FormData()
+
+        for (var key in user) {
+            console.log(key, user[key])
+            form_data.append(key, user[key])
+        }
+        e.preventDefault()
+
+        Axios({
+            url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung',
+            // data: form_data,
+            headers: { Authorization: 'Bearer ' + localStorage.getItem(ACCESSTOKEN) },
+            data: { taiKhoan: `${user.taiKhoan}`, matKhau: `${user.matKhau}`, email: `${user.email}`, soDt: `${user.soDt}`, maNhom: `${user.maNhom}`, maLoaiNguoiDung: `${user.maLoaiNguoiDung}`, hoTen: `${user.hoTen}` },
+            method: 'POST',
+        }).then(res => {
+            console.log(res)
+            alert("them thanh cong")
+            console.log("ssssssssssssssssssssssssssssssssssss")
+        }).catch(err => {
+            console.log(err.response.data)
+            alert("Thêm người dùng thất bại")
+            console.log("Thêm người dùng thất bại")
+        })
+
+        // Axios.post(`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung`,
+        //     { data: { source: form_data }, headers: { Authorization: 'Bearer ' + localStorage.getItem(ACCESSTOKEN) } })
+        //     .then(res => {
+        //         console.log("them thanh cong")
+        //         alert("them thanh cong")
+        //         // res.data = form_data\
+        //         data: form_data
+        //         // dispatch({
+        //         //     data: form_data
+        //         // })
+        //     }).catch((err) => {
+        //         alert("Thêm người dùng thất bại")
+        //         console.log("Thêm người dùng thất bại")
+        //     })
+
+    }
+
     return (
         // border-bottom border-primary
-        <form >
+        <form onSubmit={handleSubmit}>
             <div className="d-flex">
                 <div className="">
                     <div className="mx-3 form-group ">
                         <h5 className="" style={{ padding: 0 }}>Tài khoản</h5>
-                        <input type="text" className="form-control " name="taiKhoan" />
+                        <input type="text" className="form-control " name="taiKhoan" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
                         <h5 className="" style={{ padding: 0 }}>Mật khẩu</h5>
-                        <input type="text" className="form-control " name="matKhau" />
+                        <input type="text" className="form-control " name="matKhau" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
                         <h5 className="" style={{ padding: 0 }}>Họ tên</h5>
-                        <input type="text" className="form-control " name="hoTen" />
+                        <input type="text" className="form-control " name="hoTen" onChange={handleChange} />
                     </div>
                 </div>
 
@@ -24,26 +95,23 @@ export default function ThemNguoiDung() {
 
                     <div className="mx-3 form-group ">
                         <h5 className="" style={{ padding: 0 }}>Email</h5>
-                        <input type="text" className="form-control " name="email" />
+                        <input type="text" className="form-control " name="email" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
                         <h5 className="" style={{ padding: 0 }}>Số điện thoại</h5>
-                        <input type="text" className="form-control " name="soDt" />
+                        <input type="text" className="form-control " name="soDt" onChange={handleChange} />
                     </div>
                     <div className="mx-3 ">
                         <h5 className="" style={{ padding: 0 }}>Loại người dùng</h5>
-                        <select name="" name="maLoaiNguoiDung" class="form-control">
-                            <option value="0">Khách hàng</option>
-                            <option value="1">Admin</option>
+                        <select name="" name="maLoaiNguoiDung" class="form-control" onChange={handleChange} >
+                            <option value="KhachHang">Khách hàng</option>
+                            <option value="QuanTri">Admin</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div>
-                <h5 className="mx-3" style={{ padding: 0 }}>Mô tả</h5>
-                <textarea className="form-control mx-3" rows="3"></textarea>
-            </div>
 
+            <button className="btn btn-danger mt-5 ml-3 w-100" type="submit">Thêm</button>
         </form>
     )
 }

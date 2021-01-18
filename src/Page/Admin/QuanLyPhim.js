@@ -7,6 +7,7 @@ import { deleteFilm, layDanhSachPhimApiAction } from '../../redux/actions/QuanLy
 
 import { useSelector, useDispatch } from 'react-redux'
 import { USER_LOGIN } from '../../Util/Config'
+import ThemFilm from './Film/ThemFilm';
 
 // khung tim kiem phim < br />
 //     bang render ra danh sach phim < br />
@@ -67,15 +68,16 @@ export default function QuanLyPhim() {
     const xoaPhim = (maPhim, maLoaiNguoiDung) => dispatch(deleteFilm(maPhim, maLoaiNguoiDung));
     return (
         <div className="container">
-            <div className="m-3">
-                <ThemPhimTemplate />
+            <div className="m-3 ">
+                {/* <ThemPhimTemplate /> */}
+                <ThemFilm />
             </div>
 
             {/* khung tim kiếm */}
-            <div className="container-1">
+            <form className="container-1" >
                 <span className="icon"><i className="fa fa-search"></i></span>
                 <input type="search" id="search" placeholder="Nhập vào tên bộ phim hoặc mã bộ phim cần tìm... " style={{ width: "100%" }} />
-            </div>
+            </form>
 
             {/* bảng danh sách tất cả bộ phim */}
             <div className="mt-5">

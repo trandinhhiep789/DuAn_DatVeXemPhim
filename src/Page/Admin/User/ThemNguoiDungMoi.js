@@ -47,9 +47,7 @@ export default function ThemPhimTemplate() {
                         <Button onClick={onClose} style={{ marginRight: 8 }}>
                             Cancel
               </Button>
-                        <Button onClick={onClose} type="primary">
-                            Submit
-              </Button>
+
                     </div>
                 }
 

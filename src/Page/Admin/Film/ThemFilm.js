@@ -36,8 +36,8 @@ export default function ThemFilm() {
         var form_data = new FormData()
 
         for (var key in phim) {
-            console.log(key, setPhim[key])
-            form_data.append(key, setPhim[key])
+            console.log(key, phim[key])
+            form_data.append(key, phim[key])
         }
         e.preventDefault()
 
@@ -47,8 +47,11 @@ export default function ThemFilm() {
             data: form_data
         }).then(res => {
             console.log(res)
-            console.log("ssssssssssssssssssssssssssssssssssss")
+            console.log("Thêm phim thành công")
+            alert("Thêm phim thành công")
         }).catch(err => {
+            console.log("Thêm phim thất bại")
+            alert("Thêm phim thất bại")
             console.log(err.response.data)
         })
 
@@ -60,7 +63,7 @@ export default function ThemFilm() {
     return (
         // border-bottom border-primary
         <form onSubmit={handleSubmit}>
-            <div className="d-flex">
+            <div className="d-flex ">
                 <div>
                     <div className="mx-3 form-group ">
                         <h5 className="" style={{ padding: 0 }}>Mã phim</h5>
@@ -101,7 +104,7 @@ export default function ThemFilm() {
                 <textarea className="form-control mx-3" rows="3" name="moTa" onChange={handleChange}></textarea>
             </div>
 
-            <button className="btn btn-danger mt-5 ml-3 w-100" type="submit">Thêm</button>
+            <button className="btn btn-danger mt-5 ml-3 w-100" >Thêm</button>
 
         </form>
     )

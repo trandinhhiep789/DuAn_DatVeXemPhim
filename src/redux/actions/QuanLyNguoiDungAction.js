@@ -63,11 +63,13 @@ export const deleteUser = (maTaiKhoan, maLoaiNguoiDung) => {
             return Axios.delete(`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${maTaiKhoan}`,
                 { data: { source: maTaiKhoan }, headers: { Authorization: 'Bearer ' + localStorage.getItem(ACCESSTOKEN) } })
                 .then(() => {
+                    alert("thanh cong")
                     dispatch({
                         data: maTaiKhoan,
                     })
                 }).catch((err) => {
                     console.log("Lỗi API (xóa thành công)")
+                    // console.log(err.response.data)
                 })
 
 
