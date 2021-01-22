@@ -4,12 +4,13 @@ import Pagination from '../Film/Pagination'
 import User from '../User/User'
 import UserTimKiem from './UserTimKiem';
 import ThemNguoiDungMoi from '../User/ThemNguoiDungMoi'
-import { deleteUser } from '../../../redux/actions/QuanLyNguoiDungAction'
+import { deleteUser, updateUser } from '../../../redux/actions/QuanLyNguoiDungAction'
 import Axios from 'axios'
 
 import ThemNguoiDung from './ThemNguoiDung';
 
 import { useSelector, useDispatch } from 'react-redux'
+import SuaNguoiDung from './SuaNguoiDung';
 
 export default function QuanLyNguoiDung() {
 
@@ -37,10 +38,13 @@ export default function QuanLyNguoiDung() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     const dispatch = useDispatch()
-    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
+    const { userLogin } = useSelector(state => state.stateUser)
 
 
     const xoaNguoiDung = (taiKhoan, maLoaiNguoiDung) => dispatch(deleteUser(taiKhoan, maLoaiNguoiDung));
+    const suaNguoiDung = (userCanSua, maLoaiNguoiDung) => dispatch(updateUser(userCanSua, maLoaiNguoiDung));
+
+
 
 
 
@@ -96,7 +100,38 @@ export default function QuanLyNguoiDung() {
         <div className="container">
             <div className="m-3">
                 {/* <ThemNguoiDungMoi /> */}
-                <ThemNguoiDung />
+                {/* <ThemNguoiDung /> */}
+
+                {/* <!-- Button trigger modal --> */}
+                <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    <i className="fa fa-user-plus mr-3"></i>Thêm Người dùng
+                </button>
+
+                {/* <!-- Modal --> */}
+                <div className="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title"><i className="fa fa-user-plus mr-3"></i>Thêm Người dùng </h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="container-fluid">
+                                    <ThemNguoiDung />
+
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                {/* <button type="button" className="btn btn-primary">Save</button> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             {/* khung tim kiếm */}
@@ -114,10 +149,11 @@ export default function QuanLyNguoiDung() {
                         <tr>
                             <th style={{ width: '15%' }}>Tài khoản</th>
                             <th style={{ width: '15%' }}>Mật khẩu</th>
+                            <th style={{ width: '15%' }}>Họ tên</th>
                             <th style={{ width: '15%' }}>Email</th>
                             <th style={{ width: '15%' }}>Số điện thoại</th>
                             <th style={{ width: '15%' }}>Loại người dùng</th>
-                            <th style={{ width: '25%' }}>Thao tác</th>
+                            <th style={{ width: '10%' }}>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody className="ketQuaTimKiem">
@@ -134,14 +170,15 @@ export default function QuanLyNguoiDung() {
                             {/* <th style={{ width: '10%' }}>STT</th> */}
                             <th style={{ width: '15%' }}>Tài khoản</th>
                             <th style={{ width: '15%' }}>Mật khẩu</th>
+                            <th style={{ width: '15%' }}>Họ tên</th>
                             <th style={{ width: '15%' }}>Email</th>
                             <th style={{ width: '15%' }}>Số điện thoại</th>
                             <th style={{ width: '15%' }}>Loại người dùng</th>
-                            <th style={{ width: '25%' }}>Thao tác</th>
+                            <th style={{ width: '10%' }}>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody className="chinhTheTd">
-                        <User posts={currentPosts} loading={loading} userLogin={userLogin} onDelete={xoaNguoiDung} />
+                        <User posts={currentPosts} loading={loading} userLogin={userLogin} onUpdate={suaNguoiDung} onDelete={xoaNguoiDung} />
 
                     </tbody>
 

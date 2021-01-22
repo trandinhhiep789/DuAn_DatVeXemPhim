@@ -25,7 +25,7 @@ export default function QuanLyPhim() {
 
 
     const dispatch = useDispatch()
-    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
+    const { userLogin } = useSelector(state => state.stateUser)
 
 
 

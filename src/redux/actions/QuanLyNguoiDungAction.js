@@ -51,12 +51,10 @@ export const dangNhapAction = (userLogin) => {
 }
 
 export const deleteUser = (maTaiKhoan, maLoaiNguoiDung) => {
-
-
-
     return async (dispatch) => {
         alert('access nha')
         alert(localStorage.getItem(ACCESSTOKEN));
+        // <h4>aaaaaaaaaa</h4>
         if (maLoaiNguoiDung === "QuanTri") {
             alert(maTaiKhoan)
 
@@ -71,13 +69,52 @@ export const deleteUser = (maTaiKhoan, maLoaiNguoiDung) => {
                     console.log("Lỗi API (xóa thành công)")
                     // console.log(err.response.data)
                 })
-
-
-
         }
         else {
             alert("CHỈ QUẢN TRỊ MỚI XÓA ĐƯỢC");
         }
+    }
+}
+
+export const updateUser = (userupdate, maLoaiNguoiDung) => {
+    return async (dispatch) => {
+        // alert('access nha')
+        // alert(localStorage.getItem(ACCESSTOKEN));
+        // alert(maLoaiNguoiDung)
+        // alert(userupdate);
+
+        if (maLoaiNguoiDung === "QuanTri") {
+            dispatch({
+                type: 'UpdateUser',
+                data: userupdate,
+            })
+        }
+        else {
+            alert("CHỈ QUẢN TRỊ MỚI UPDATE ĐƯỢC");
+        }
+
+        // if (maLoaiNguoiDung === "QuanTri") {
+        //     alert(taiKhoan)
+
+        //     return Axios.put(`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+        //         {
+        //             headers: { Authorization: 'Bearer ' + localStorage.getItem(ACCESSTOKEN) },
+        //             data: { taiKhoan: `${taiKhoan}`, matKhau: `${matKhau}`, email: `${email}`, soDt: `${soDt}`, maNhom: `${maNhom}`, maLoaiNguoiDung: `${maLoaiNguoiDung}`, hoTen: `${hoTen}` }
+        //         })
+        //         .then(() => {
+        //             alert("Update thành công")
+        //             dispatch({
+        //                 type: 'UpdateUSer',
+        //                 data: data,
+        //             })
+        //         }).catch((err) => {
+        //             console.log("Lỗi API (xóa thành công)")
+        //             // console.log(err.response.data)
+        //         })
+        // }
+        // else {
+        //     alert("CHỈ QUẢN TRỊ MỚI UPDATE ĐƯỢC");
+        // }
     }
 }
 

@@ -24,6 +24,7 @@ export const UserTimKiem = ({ user, ketQua, userLogin, onDelete }) => {
                 <tr>
                     <td scope="row">{kq.taiKhoan}</td>
                     <td>{kq.matKhau}</td>
+                    <td>{kq.hoTen}</td>
                     <td>{kq.email}</td>
                     <td>{kq.soDt}</td>
                     <td>{kq.maLoaiNguoiDung}</td>

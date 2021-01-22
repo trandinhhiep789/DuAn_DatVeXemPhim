@@ -55,20 +55,6 @@ export default function ThemNguoiDung() {
             console.log("Thêm người dùng thất bại")
         })
 
-        // Axios.post(`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung`,
-        //     { data: { source: form_data }, headers: { Authorization: 'Bearer ' + localStorage.getItem(ACCESSTOKEN) } })
-        //     .then(res => {
-        //         console.log("them thanh cong")
-        //         alert("them thanh cong")
-        //         // res.data = form_data\
-        //         data: form_data
-        //         // dispatch({
-        //         //     data: form_data
-        //         // })
-        //     }).catch((err) => {
-        //         alert("Thêm người dùng thất bại")
-        //         console.log("Thêm người dùng thất bại")
-        //     })
 
     }
 
@@ -77,32 +63,32 @@ export default function ThemNguoiDung() {
         <form onSubmit={handleSubmit}>
             <div className="d-flex">
                 <div className="">
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Tài khoản</h5>
-                        <input type="text" className="form-control " name="taiKhoan" onChange={handleChange} />
+                    <div className="mx-3 form-group fw-bold ">
+                        {/* <h5 className="" style={{ padding: 0 }}>Tài khoản</h5> */}
+                        <input type="text" className="form-control " placeholder="Tài Khoản" name="taiKhoan" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Mật khẩu</h5>
-                        <input type="text" className="form-control " name="matKhau" onChange={handleChange} />
+                        {/* <h5 className="" style={{ padding: 0 }}>Mật khẩu</h5> */}
+                        <input type="text" className="form-control " placeholder="Mật Khẩu" name="matKhau" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Họ tên</h5>
-                        <input type="text" className="form-control " name="hoTen" onChange={handleChange} />
+                        {/* <h5 className="" style={{ padding: 0 }}>Họ tên</h5> */}
+                        <input type="text" className="form-control " placeholder="Họ Tên" name="hoTen" onChange={handleChange} />
                     </div>
                 </div>
 
                 <div className="">
 
                     <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Email</h5>
-                        <input type="text" className="form-control " name="email" onChange={handleChange} />
+                        {/* <h5 className="" style={{ padding: 0 }}>Email</h5> */}
+                        <input type="text" className="form-control " placeholder="Email" name="email" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Số điện thoại</h5>
-                        <input type="text" className="form-control " name="soDt" onChange={handleChange} />
+                        {/* <h5 className="" style={{ padding: 0 }}>Số điện thoại</h5> */}
+                        <input type="text" className="form-control " placeholder="Số Điện Thoại" name="soDt" onChange={handleChange} />
                     </div>
                     <div className="mx-3 ">
-                        <h5 className="" style={{ padding: 0 }}>Loại người dùng</h5>
+                        {/* <h5 className="" style={{ padding: 0 }}>Loại người dùng</h5> */}
                         <select name="" name="maLoaiNguoiDung" class="form-control" onChange={handleChange} >
                             <option value="KhachHang">Khách hàng</option>
                             <option value="QuanTri">Admin</option>
