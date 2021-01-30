@@ -1,7 +1,7 @@
 import React from 'react'
 import SuaNguoiDung from './SuaNguoiDung'
 
-export const Film = ({ posts, loading, userLogin, onDelete, onUpdate }) => {
+export const User = ({ posts, loading, userLogin, onDelete, onUpdate }) => {
 
     if (loading) {
         return <h2>loading...</h2>
@@ -15,7 +15,7 @@ export const Film = ({ posts, loading, userLogin, onDelete, onUpdate }) => {
 
             {posts.map((post) => (
 
-                <tr>
+                <tr >
                     <td scope="row">{post.taiKhoan}</td>
                     <td>{post.matKhau}</td>
                     <td>{post.hoTen}</td>
@@ -26,7 +26,7 @@ export const Film = ({ posts, loading, userLogin, onDelete, onUpdate }) => {
                     <td className="d-flex justify-content-center">
                         <button className="btn btn-outline-success mr-3">Ghi danh</button>
 
-                        <button className="btn btn-outline-info ml-3" onClick={() => onUpdate(post, userLogin.maLoaiNguoiDung)} ><SuaNguoiDung /></button>
+                        <button className="btn btn-outline-info ml-3" onClick={() => onUpdate(post.taiKhoan, post.matKhau, post.hoTen, post.email, post.soDt, post.maLoaiNguoiDung, userLogin.maLoaiNguoiDung)} >sua</button>
 
                         <button className="btn btn-outline-danger ml-3" onClick={() => onDelete(post.taiKhoan, userLogin.maLoaiNguoiDung)}>X</button>
                     </td>
@@ -39,5 +39,5 @@ export const Film = ({ posts, loading, userLogin, onDelete, onUpdate }) => {
     )
 }
 
-export default Film
+export default User
 

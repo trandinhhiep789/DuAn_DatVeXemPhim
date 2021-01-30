@@ -4,6 +4,7 @@ const { USER_LOGIN } = require("../../Util/Config")
 
 let userLogin = {}
 let userUpdate = {}
+let congTac = "dong"
 
 if (localStorage.getItem(USER_LOGIN)) {
     // lay userLogin trong storage gan cho state
@@ -17,6 +18,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 const stateDefault = {
     userLogin: userLogin,
     userUpdate: userUpdate,
+    congTac: congTac,
 }
 
 const QuanLyNguoiDungReducer = (state = stateDefault, action,) => {
@@ -27,12 +29,22 @@ const QuanLyNguoiDungReducer = (state = stateDefault, action,) => {
         }
 
         case 'UpdateUser': {
-            // alert("vo reducer")
+            console.log("action.data: ")
             console.log(action.data);
+
+            console.log("state.userUpdate");
+            console.log(state.userUpdate);
+            console.log("action.data");
+            console.log(action.data);
+            state.congTac = "mo"
+
             state.userUpdate = { ...action.data };
             // alert(state.userUpdate);
             // console.log(state.userUpdate);
             return { ...state };
+        }
+        case 'DONG_MO': {
+
         }
 
         default: return { ...state }

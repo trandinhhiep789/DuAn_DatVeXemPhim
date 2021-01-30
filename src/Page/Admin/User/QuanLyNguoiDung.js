@@ -42,7 +42,7 @@ export default function QuanLyNguoiDung() {
 
 
     const xoaNguoiDung = (taiKhoan, maLoaiNguoiDung) => dispatch(deleteUser(taiKhoan, maLoaiNguoiDung));
-    const suaNguoiDung = (userCanSua, maLoaiNguoiDung) => dispatch(updateUser(userCanSua, maLoaiNguoiDung));
+    const suaNguoiDung = (taiKhoan, matKhau, hoTen, email, soDt, maLoaiNguoiDung, maLoaiNguoiDunguser) => dispatch(updateUser(taiKhoan, matKhau, hoTen, email, soDt, maLoaiNguoiDung, maLoaiNguoiDunguser));
 
 
 
@@ -94,13 +94,30 @@ export default function QuanLyNguoiDung() {
 
     }
 
+    let taiKhoan = useSelector(state => state.stateUser.userUpdate.taiKhoan)
+
+
+    const dongMo = () => {
+        let action = {
+            type: 'DONG_MO'
+        }
+        return dispatch(action)
+    }
+
+    let dk = useSelector(state => state.stateUser.congTac)
+
+    if (dk == "mo") {
+        // alert(nut)
+        console.log(taiKhoan)
+        return <SuaNguoiDung />
+    }
+
+
 
 
     return (
         <div className="container">
             <div className="m-3">
-                {/* <ThemNguoiDungMoi /> */}
-                {/* <ThemNguoiDung /> */}
 
                 {/* <!-- Button trigger modal --> */}
                 <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
@@ -157,7 +174,7 @@ export default function QuanLyNguoiDung() {
                         </tr>
                     </thead>
                     <tbody className="ketQuaTimKiem">
-                        <UserTimKiem user={user.tuKhoa} ketQua={ketQua} userLogin={userLogin} onDelete={xoaNguoiDung} />
+                        <UserTimKiem user={user.tuKhoa} ketQua={ketQua} userLogin={userLogin} onUpdate={suaNguoiDung} onDelete={xoaNguoiDung} />
                     </tbody>
                 </table>
             </div>

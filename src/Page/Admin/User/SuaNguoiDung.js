@@ -46,18 +46,20 @@ export default function SuaNguoiDung() {
 
     const handleChange = (e) => {
         let { value, name } = e.target;
+        e.preventDefault()
+
         // Thay đổi giá trị thuộc tính đang onChange
         if (user.taiKhoan == "" && user.matKhau == "" && user.soDt == "" && user.hoTen == "" && user.maLoaiNguoiDung == "") {
 
-            // setUser({
-            //     taiKhoan: taiKhoan,
-            //     email: email,
-            //     matKhau: matKhau,
-            //     hoTen: hoTen,
-            //     maNhom: 'GP01',
-            //     soDt: soDt,
-            //     maLoaiNguoiDung: maLoaiNguoiDung,
-            // })
+            setUser({
+                taiKhoan: taiKhoan,
+                email: email,
+                matKhau: matKhau,
+                hoTen: hoTen,
+                maNhom: 'GP01',
+                soDt: soDt,
+                maLoaiNguoiDung: maLoaiNguoiDung,
+            })
 
             console.log("Thong tin tai khoan can sua: ")
             console.log(user);
@@ -65,78 +67,50 @@ export default function SuaNguoiDung() {
         }
 
         else {
-            switch (user) {
-                case user.taiKhoan == "": {
-                    // do some thing
-                    setUser({
-                        taiKhoan: taiKhoan,
-                        maNhom: 'GP01',
-                    })
-                    break;
-                }
-                case user.matKhau == "": {
-                    // do some thing
-                    setUser({
-                        matKhau: matKhau,
-                        maNhom: 'GP01',
-                    })
-
-                    console.log("vo case")
-                    break;
-                }
-                case user.soDt == "": {
-                    // do some thing
-                    setUser({
-                        maNhom: 'GP01',
-                        soDt: soDt,
-                    })
-                    break;
-                }
-                case user.hoTen == "": {
-                    // do some thing
-                    setUser({
-                        hoTen: hoTen,
-                        maNhom: 'GP01',
-                    })
-                    break;
-                }
-                case user.maLoaiNguoiDung == "": {
-                    // do some thing
-                    setUser({
-                        maNhom: 'GP01',
-                        maLoaiNguoiDung: maLoaiNguoiDung,
-                    })
-                    break;
-                }
-
-                default: {
-                    // do something
-                    let newUser = { ...user, [name]: value };
-                    // Set lại state của userLogin = giá trị mới
-                    // setUser(newUser)
-                    console.log("Thong tin tai khoan can sua: ")
-                    console.log(newUser);
-                }
+            if (user.taiKhoan == "") {
+                setUser({
+                    taiKhoan: taiKhoan,
+                    maNhom: 'GP01',
+                })
             }
+            else if (user.matKhau == "") {
+                setUser({
+                    matKhau: matKhau,
+                    maNhom: 'GP01',
+                })
+            }
+            else if (user.soDt == "") {
+                setUser({
+                    maNhom: 'GP01',
+                    soDt: soDt,
+                })
+            }
+            else if (user.hoTen == "") {
+                setUser({
+                    hoTen: hoTen,
+                    maNhom: 'GP01',
+                })
+            }
+            else if (user.maLoaiNguoiDung == "") {
+                setUser({
+                    maNhom: 'GP01',
+                    maLoaiNguoiDung: maLoaiNguoiDung,
+                })
+            }
+            else {
+                let newUser = { ...user, [name]: value };
+                // Set lại state của userLogin = giá trị mới
+                setUser(newUser)
+                console.log("Thong tin tai khoan can sua: ")
+                console.log(newUser);
+            }
+
+
         }
 
 
     }
 
-    // const dispatch = useDispatch()
-
-    const { reset } = useForm({
-        defaultValues: {
-            test: [{
-                email: "",
-                matKhau: "",
-                hoTen: "",
-                maNhom: 'GP01',
-                soDt: "",
-                maLoaiNguoiDung: "",
-            }],
-        },
-    });
 
     const handleSubmit = (e) => {
         // chặn sự kiện load lại
@@ -159,12 +133,14 @@ export default function SuaNguoiDung() {
         }).then(res => {
             console.log(res)
             alert("Cập nhật người dùng thành công")
+
             console.log("ssssssssssssssssssssssssssssssssssss")
 
         }).catch(err => {
             console.log(err.response.data)
             alert(err.response.data)
             alert("Cập người dùng thất bại")
+
 
             console.log("Cập nhật người dùng thất bại")
         })
@@ -179,7 +155,7 @@ export default function SuaNguoiDung() {
                 </button>
 
                 <div className="modal fade" id="modelId_Sua" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId_Sua" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
+                    <div className="modal-dialog" role="">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title"><i className="fa fa-user-cog mr-3"></i> Sửa người dùng</h5>
@@ -189,7 +165,7 @@ export default function SuaNguoiDung() {
                             </div>
                             <div className="modal-body">
                                 <div className="container-fluid">
-                                    <form id="form_update_user" onSubmit={handleSubmit}>
+                                    <form className="text-right" id="form_update_user" onSubmit={handleSubmit}>
                                         <div className="d-flex">
                                             <div className="">
                                                 <div className="mx-3 form-group fw-bold ">
@@ -217,26 +193,32 @@ export default function SuaNguoiDung() {
                                                     {/* <h5 className="" style={{ padding: 0 }}>Số điện thoại</h5> */}
                                                     <input type="text" className="form-control " placeholder={soDt} name="soDt" onChange={handleChange} />
                                                 </div>
-                                                <div className="mx-3 ">
+                                                <div className="mx-3">
                                                     {/* <h5 className="" style={{ padding: 0 }}>Loại người dùng</h5> */}
                                                     <select name="maLoaiNguoiDung" class="form-control" onChange={handleChange} >
                                                         <option selected>{maLoaiNguoiDung}</option>
                                                         <option value="KhachHang">Khách hàng</option>
                                                         <option value="QuanTri">Quản trị</option>
                                                     </select>
+
                                                 </div>
                                             </div>
+
                                         </div>
+
+                                        <button className="btn btn-secondary mr-5" type="reset"><i className="fa fa-sync"></i></button>
 
                                         <button className="btn btn-outline-info mt-5 w-100" type="submit">Sửa</button>
 
-                                        <button id="reset_form" className="btn btn-outline-success mt-5 w-100" type="reset">Reset</button>
+
 
                                     </form>
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
+                                <button type="reset" className="btn btn-secondary" data-dismiss="modal">
+                                    Thoát
+                                </button>
                                 {/* <button type="button" className="btn btn-primary">Save</button> */}
                             </div>
                         </div>

@@ -76,14 +76,12 @@ export const deleteUser = (maTaiKhoan, maLoaiNguoiDung) => {
     }
 }
 
-export const updateUser = (userupdate, maLoaiNguoiDung) => {
+export const updateUser = (taiKhoan, matKhau, hoTen, email, soDt, maLoaiNguoiDung, maLoaiNguoiDunguser) => {
     return async (dispatch) => {
-        // alert('access nha')
-        // alert(localStorage.getItem(ACCESSTOKEN));
-        // alert(maLoaiNguoiDung)
-        // alert(userupdate);
-
-        if (maLoaiNguoiDung === "QuanTri") {
+        if (maLoaiNguoiDunguser === "QuanTri") {
+            let userupdate = { taiKhoan, matKhau, hoTen, email, soDt, maLoaiNguoiDung }
+            console.log("userupdate:")
+            console.log(userupdate)
             dispatch({
                 type: 'UpdateUser',
                 data: userupdate,

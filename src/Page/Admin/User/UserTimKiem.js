@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const UserTimKiem = ({ user, ketQua, userLogin, onDelete }) => {
+export const UserTimKiem = ({ user, ketQua, userLogin, onDelete, onUpdate }) => {
 
     if (ketQua == '') {
         return <h2></h2>
@@ -31,7 +31,7 @@ export const UserTimKiem = ({ user, ketQua, userLogin, onDelete }) => {
 
                     <td className="d-flex justify-content-center">
                         <button className="btn btn-outline-success">Ghi danh</button>
-                        <button className="btn mx-3 btn-outline-info">sửa</button>
+                        <button className="btn mx-3 btn-outline-info" onClick={() => onUpdate(kq.taiKhoan, kq.matKhau, kq.hoTen, kq.email, kq.soDt, kq.maLoaiNguoiDung, userLogin.maLoaiNguoiDung)}>sửa</button>
                         <button className="btn btn-outline-danger" onClick={() => onDelete(kq.taiKhoan, userLogin.maLoaiNguoiDung)}>X</button>
                     </td>
                 </tr>
