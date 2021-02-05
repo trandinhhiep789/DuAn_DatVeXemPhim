@@ -64,15 +64,15 @@ export default function ThemNguoiDung() {
             <div className="d-flex">
                 <div className="">
                     <div className="mx-3 form-group fw-bold ">
-                        {/* <h5 className="" style={{ padding: 0 }}>Tài khoản</h5> */}
+                        <h6 className="font-weight-light" style={{ padding: 0 }}>Tài khoản</h6>
                         <input type="text" className="form-control " placeholder="Tài Khoản" name="taiKhoan" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
-                        {/* <h5 className="" style={{ padding: 0 }}>Mật khẩu</h5> */}
+                        <h6 className="font-weight-light" style={{ padding: 0 }}>Mật khẩu</h6>
                         <input type="text" className="form-control " placeholder="Mật Khẩu" name="matKhau" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
-                        {/* <h5 className="" style={{ padding: 0 }}>Họ tên</h5> */}
+                        <h6 className="font-weight-light" style={{ padding: 0 }}>Họ tên</h6>
                         <input type="text" className="form-control " placeholder="Họ Tên" name="hoTen" onChange={handleChange} />
                     </div>
                 </div>
@@ -80,15 +80,15 @@ export default function ThemNguoiDung() {
                 <div className="">
 
                     <div className="mx-3 form-group ">
-                        {/* <h5 className="" style={{ padding: 0 }}>Email</h5> */}
+                        <h6 className="font-weight-light" style={{ padding: 0 }}>Email</h6>
                         <input type="text" className="form-control " placeholder="Email" name="email" onChange={handleChange} />
                     </div>
                     <div className="mx-3 form-group ">
-                        {/* <h5 className="" style={{ padding: 0 }}>Số điện thoại</h5> */}
+                        <h6 className="font-weight-light" style={{ padding: 0 }}>Số điện thoại</h6>
                         <input type="text" className="form-control " placeholder="Số Điện Thoại" name="soDt" onChange={handleChange} />
                     </div>
                     <div className="mx-3 ">
-                        {/* <h5 className="" style={{ padding: 0 }}>Loại người dùng</h5> */}
+                        <h6 className="font-weight-light" style={{ padding: 0 }}>Loại người dùng</h6>
                         <select name="" name="maLoaiNguoiDung" class="form-control" onChange={handleChange} >
                             <option value="KhachHang">Khách hàng</option>
                             <option value="QuanTri">Admin</option>

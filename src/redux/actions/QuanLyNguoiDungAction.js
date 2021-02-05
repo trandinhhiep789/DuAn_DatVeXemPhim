@@ -52,8 +52,6 @@ export const dangNhapAction = (userLogin) => {
 
 export const deleteUser = (maTaiKhoan, maLoaiNguoiDung) => {
     return async (dispatch) => {
-        alert('access nha')
-        alert(localStorage.getItem(ACCESSTOKEN));
         // <h4>aaaaaaaaaa</h4>
         if (maLoaiNguoiDung === "QuanTri") {
             alert(maTaiKhoan)

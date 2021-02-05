@@ -73,25 +73,25 @@ export default function SuaNguoiDung() {
                     maNhom: 'GP01',
                 })
             }
-            else if (user.matKhau == "") {
+            if (user.matKhau == "") {
                 setUser({
                     matKhau: matKhau,
                     maNhom: 'GP01',
                 })
             }
-            else if (user.soDt == "") {
+            if (user.soDt == "") {
                 setUser({
                     maNhom: 'GP01',
                     soDt: soDt,
                 })
             }
-            else if (user.hoTen == "") {
+            if (user.hoTen == "") {
                 setUser({
                     hoTen: hoTen,
                     maNhom: 'GP01',
                 })
             }
-            else if (user.maLoaiNguoiDung == "") {
+            if (user.maLoaiNguoiDung == "") {
                 setUser({
                     maNhom: 'GP01',
                     maLoaiNguoiDung: maLoaiNguoiDung,
@@ -134,8 +134,6 @@ export default function SuaNguoiDung() {
             console.log(res)
             alert("Cập nhật người dùng thành công")
 
-            console.log("ssssssssssssssssssssssssssssssssssss")
-
         }).catch(err => {
             console.log(err.response.data)
             alert(err.response.data)
@@ -147,10 +145,12 @@ export default function SuaNguoiDung() {
 
     }
 
+    const dispatch = useDispatch()
+
     return (
         <div>
             <div>
-                <button type="button" className="btn btn-outline-info" data-toggle="modal" data-target="#modelId_Sua">
+                <button type="button" className="btn btn-info align-center p-5" data-toggle="modal" data-target="#modelId_Sua">
                     Sửa
                 </button>
 
@@ -165,20 +165,20 @@ export default function SuaNguoiDung() {
                             </div>
                             <div className="modal-body">
                                 <div className="container-fluid">
-                                    <form className="text-right" id="form_update_user" onSubmit={handleSubmit}>
+                                    <form className="" id="form_update_user" onSubmit={handleSubmit}>
                                         <div className="d-flex">
                                             <div className="">
                                                 <div className="mx-3 form-group fw-bold ">
-                                                    {/* <h5 className="" style={{ padding: 0 }}>Tài khoản</h5> */}
+                                                    <h6 className="font-weight-light" style={{ padding: 0 }}>Tài khoản</h6>
 
                                                     <input type="text" className="form-control " placeholder={taiKhoan} name="taiKhoan" id="taiKhoan" onChange={handleChange} disabled />
                                                 </div>
                                                 <div className="mx-3 form-group ">
-                                                    {/* <h5 className="" style={{ padding: 0 }}>Mật khẩu</h5> */}
+                                                    <h6 className="font-weight-light" style={{ padding: 0 }}>Mật khẩu</h6>
                                                     <input type="text" className="form-control " placeholder={matKhau} name="matKhau" onChange={handleChange} />
                                                 </div>
                                                 <div className="mx-3 form-group ">
-                                                    {/* <h5 className="" style={{ padding: 0 }}>Họ tên</h5> */}
+                                                    <h6 className="font-weight-light" style={{ padding: 0 }}>Họ tên</h6>
                                                     <input type="text" className="form-control " placeholder={hoTen} name="hoTen" onChange={handleChange} />
                                                 </div>
                                             </div>
@@ -186,15 +186,15 @@ export default function SuaNguoiDung() {
                                             <div className="">
 
                                                 <div className="mx-3 form-group ">
-                                                    {/* <h5 className="" style={{ padding: 0 }}>Email</h5> */}
+                                                    <h6 className="font-weight-light" style={{ padding: 0 }}>Email</h6>
                                                     <input type="text" className="form-control " placeholder={email} name="email" onChange={handleChange} />
                                                 </div>
                                                 <div className="mx-3 form-group ">
-                                                    {/* <h5 className="" style={{ padding: 0 }}>Số điện thoại</h5> */}
+                                                    <h6 className="font-weight-light" style={{ padding: 0 }}>Số điện thoại</h6>
                                                     <input type="text" className="form-control " placeholder={soDt} name="soDt" onChange={handleChange} />
                                                 </div>
                                                 <div className="mx-3">
-                                                    {/* <h5 className="" style={{ padding: 0 }}>Loại người dùng</h5> */}
+                                                    <h6 className="font-weight-light" style={{ padding: 0 }}>Loại người dùng</h6>
                                                     <select name="maLoaiNguoiDung" class="form-control" onChange={handleChange} >
                                                         <option selected>{maLoaiNguoiDung}</option>
                                                         <option value="KhachHang">Khách hàng</option>
@@ -206,9 +206,9 @@ export default function SuaNguoiDung() {
 
                                         </div>
 
-                                        <button className="btn btn-secondary mr-5" type="reset"><i className="fa fa-sync"></i></button>
+                                        <button className="btn btn-secondary ml-3" type="reset"><i className="fa fa-sync"></i></button>
 
-                                        <button className="btn btn-outline-info mt-5 w-100" type="submit">Sửa</button>
+                                        <button className="btn btn-outline-info mt-5 w-100 text-center" type="submit" >Sửa</button>
 
 
 
@@ -216,7 +216,12 @@ export default function SuaNguoiDung() {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="reset" className="btn btn-secondary" data-dismiss="modal">
+                                <button type="reset" className="btn btn-secondary" data-dismiss="modal" onClick={() => {
+                                    let action = {
+                                        type: 'DONG_MO'
+                                    }
+                                    dispatch(action)
+                                }}>
                                     Thoát
                                 </button>
                                 {/* <button type="button" className="btn btn-primary">Save</button> */}

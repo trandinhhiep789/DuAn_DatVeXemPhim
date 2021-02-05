@@ -3,11 +3,15 @@ import axios from 'axios'
 import Film from './Film/Film'
 import Pagination from './Film/Pagination'
 import ThemPhimTemplate from './Film/ThemPhimMoi'
-import { deleteFilm, layDanhSachPhimApiAction } from '../../redux/actions/QuanLyPhimAction'
+import { deleteFilm, layDanhSachPhimApiAction, updateFilm } from '../../redux/actions/QuanLyPhimAction'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { USER_LOGIN } from '../../Util/Config'
 import ThemFilm from './Film/ThemFilm';
+import SuaPhim from './Film/SuaPhim'
+import FilmTimKiem from './Film/FilmTimKiem'
+
+
 
 // khung tim kiem phim < br />
 //     bang render ra danh sach phim < br />
@@ -21,6 +25,9 @@ import ThemFilm from './Film/ThemFilm';
 
 export default function QuanLyPhim() {
 
+    const [phimTimKiem, setPhimTimKiem] = useState({
+        maPhim: '',
+    })
 
 
 
@@ -66,18 +73,111 @@ export default function QuanLyPhim() {
 
 
     const xoaPhim = (maPhim, maLoaiNguoiDung) => dispatch(deleteFilm(maPhim, maLoaiNguoiDung));
+
+    const suaPhim = (maPhim, tenPhim, biDanh, trailer, hinhAnh, moTa, maNhom, ngayKhoiChieu, danhGia, maLoaiNguoiDunguser) => dispatch(updateFilm(maPhim, tenPhim, biDanh, trailer, hinhAnh, moTa, maNhom, ngayKhoiChieu, danhGia, maLoaiNguoiDunguser));
+
+
+    let dk = useSelector(state => state.stateFilm.congTac)
+
+    if (dk == "mo") {
+        return <div className="d-flex" style={{ justifyContent: "center" }}>
+            <SuaPhim />
+        </div>
+    }
+
+    // const [phimTimKiem, setPhimTimKiem] = useState({
+    //     maPhim: '',
+    // })
+
+    const handleChange = (e) => {
+        let { value, name } = e.target;
+        // Thay đổi giá trị thuộc tính đang onChange
+        let newTimKiem = { ...phimTimKiem, [name]: value };
+        // Set lại state của userLogin = giá trị mới
+        setPhimTimKiem(newTimKiem)
+        console.log(newTimKiem);
+    }
+
+    // const [ketQua, setketQua] = useState([])
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        let action = {
+            type: 'FILM_TIM_KIEM',
+            data: phimTimKiem,
+        }
+
+        dispatch(action)
+    }
+
+
     return (
         <div className="container">
-            <div className="m-3 ">
-                {/* <ThemPhimTemplate /> */}
-                <ThemFilm />
+            {/* Thêm phim */}
+            <div className="m-3">
+
+                {/* <!-- Button trigger modal --> */}
+                <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    <i className="fa fa-plus fs-1"></i><i className="fa fa-film m-2"></i>Thêm phim mới
+                </button>
+
+                {/* <!-- Modal --> */}
+                <div className="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title"><i className="fa fa-user-plus mr-3"></i>Thêm phim mới </h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="container-fluid">
+                                    <ThemFilm />
+
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                {/* <button type="button" className="btn btn-primary">Save</button> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             {/* khung tim kiếm */}
-            <form className="container-1" >
+            {/* khung tim kiếm */}
+            <div className="container-1">
                 <span className="icon"><i className="fa fa-search"></i></span>
-                <input type="search" id="search" placeholder="Nhập vào tên bộ phim hoặc mã bộ phim cần tìm... " style={{ width: "100%" }} />
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <span className="icon"><i className="fa fa-search"></i></span>
+                    <input name="tuKhoa" id="search" placeholder="Nhập vào tài khoản hoặc họ tên người dùng... " style={{ width: "100%" }} onChange={handleChange} />
+                </form>
+
+            </div>
+            <div className="mt-">
+                <table className="table table-active table-striped table-bordered" >
+                    <thead>
+                        <tr>
+                            <th style={{ width: '15%' }}>Mã phim</th>
+                            <th style={{ width: '15%' }}>Tên phim</th>
+                            <th style={{ width: '15%' }}>Hình ảnh</th>
+                            <th style={{ width: '15%' }}>Mô tả</th>
+                            <th style={{ width: '15%' }}>Bí danh</th>
+                            <th style={{ width: '15%' }}>Ngay khởi chiếu</th>
+                            <th style={{ width: '10%' }}>Các chức năng </th>
+                        </tr>
+                    </thead>
+                    <tbody className="ketQuaTimKiem">
+                        {/* <UserTimKiem user={user.tuKhoa} ketQua={ketQua} userLogin={userLogin} onUpdate={suaNguoiDung} onDelete={xoaNguoiDung} /> */}
+                        <FilmTimKiem posts={currentPosts} phimTimKiem={phimTimKiem} userLogin={userLogin} onUpdate={suaPhim} onDelete={xoaPhim} />
+                    </tbody>
+                </table>
+            </div>
 
             {/* bảng danh sách tất cả bộ phim */}
             <div className="mt-5">
@@ -88,14 +188,14 @@ export default function QuanLyPhim() {
                             <th style={{ width: '10%' }}>Tên phim</th>
                             <th style={{ width: '10%' }}>Hình ảnh</th>
                             <th style={{ width: '30%' }}>Mô tả</th>
-                            <th style={{ width: '5%' }}>Mã nhóm</th>
+                            <th style={{ width: '5%' }}>Bí danh</th>
                             <th style={{ width: '10%' }}>Ngày khởi chiếu</th>
                             <th style={{ width: '30%' }}>Các chức năng</th>
                         </tr>
                     </thead>
                     <tbody className="chinhTheTd">
 
-                        <Film posts={currentPosts} loading={loading} userLogin={userLogin} onDelete={xoaPhim} />
+                        <Film posts={currentPosts} loading={loading} userLogin={userLogin} onUpdate={suaPhim} onDelete={xoaPhim} />
 
                     </tbody>
 

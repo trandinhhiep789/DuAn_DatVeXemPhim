@@ -24,7 +24,6 @@ export const User = ({ posts, loading, userLogin, onDelete, onUpdate }) => {
                     <td>{post.maLoaiNguoiDung}</td>
 
                     <td className="d-flex justify-content-center">
-                        <button className="btn btn-outline-success mr-3">Ghi danh</button>
 
                         <button className="btn btn-outline-info ml-3" onClick={() => onUpdate(post.taiKhoan, post.matKhau, post.hoTen, post.email, post.soDt, post.maLoaiNguoiDung, userLogin.maLoaiNguoiDung)} >sua</button>
 

@@ -2,17 +2,39 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import DrawerForm from './DrawerForm'
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 export default function ThemFilm() {
+    let dateTime;
 
     const [phim, setPhim] = useState({
         hinhAnh: {},
+        // ngayKhoiChieu: {},
         maPhim: '',
         danhGia: '',
+        biDanh: '',
         tenPhim: '',
         maNhom: 'GP01',
-        maTa: '',
+        moTa: '',
         trailer: '',
+
     })
+
+
+    const [hinh, setHinh] = useState({
+        profileImg: 'https://superawesomevectors.com/wp-content/uploads/2017/07/film-reel-flat-vector-icon-800x566.jpg'
+    })
+
+    const imageHandler = (e) => {
+        const reader = new FileReader()
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setHinh({ profileImg: reader.result })
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
+    }
 
     const handleChange = (e) => {
         let { value, name } = e.target;
@@ -20,12 +42,25 @@ export default function ThemFilm() {
         if (name === 'hinhAnh') {
             let newPhim = { ...phim, hinhAnh: e.target.files[0] };
             setPhim(newPhim)
+            console.log(newPhim);
+
+            //chỗ hiện hình ảnh
+            const reader = new FileReader()
+            reader.onload = () => {
+                if (reader.readyState === 2) {
+                    setHinh({ profileImg: reader.result })
+                }
+            }
+            reader.readAsDataURL(e.target.files[0])
+
         }
         else {
+
             // Thay đổi giá trị thuộc tính đang onChange
             let newPhim = { ...phim, [name]: value };
             // Set lại state của userLogin = giá trị mới
             setPhim(newPhim)
+            console.log('newPhim');
             console.log(newPhim);
         }
     }
@@ -52,60 +87,99 @@ export default function ThemFilm() {
         }).catch(err => {
             console.log("Thêm phim thất bại")
             alert("Thêm phim thất bại")
-            console.log(err.response.data)
+            alert(err.response.data)
         })
 
     }
 
 
+    // maPhim, tenPhim, biDanh, trailer, hinhAnh, moTa, maNhom, ngayKhoiChieu, danhGia
 
+    // const [startDate, setStartDate] = useState(new Date());
+
+
+    // const Example = () => {
+
+    //     dateTime = { ...startDate }
+
+
+    //     console.log("phim.date")
+    //     console.log(startDate)
+
+    //     return (
+    //         <div>
+    //             <DatePicker
+    //                 name="ngayKhoiChieu"
+    //                 selected={startDate}
+    //                 onChange={date => setStartDate(date)}
+    //                 dateFormat='yyyy/MM/dd'
+    //                 minDate={new Date()}
+    //                 isClearable
+    //             />
+
+    //         </div>
+    //     )
+    // }
 
     return (
         // border-bottom border-primary
-        <form onSubmit={handleSubmit}>
-            <div className="d-flex ">
+        <div>
+
+            <form onSubmit={handleSubmit}>
+                <div className="mx-3 form-group ">
+                    <h6 className="font-weight-light" style={{ padding: 0 }} >Hình ảnh</h6>
+
+                    <div className="border text-center">
+                        {/* <img src={hinh.profileImg} style={{ height: 240, width: 185 }} /> */}
+                        <img src={hinh.profileImg} style={{ width: '100%' }} />
+                    </div>
+
+                    <input type="file" name="hinhAnh" onChange={handleChange} />
+                </div>
+                <div className="d-flex ">
+                    <div>
+                        <div className="mx-3 form-group ">
+                            <h6 className="font-weight-light" style={{ padding: 0 }}>Mã phim</h6>
+                            <input type="text" className="form-control " name="maPhim" onChange={handleChange} />
+                        </div>
+                        <div className="mx-3 form-group ">
+                            <h6 className="font-weight-light" style={{ padding: 0 }}>Tên phim</h6>
+                            <input type="text" className="form-control " name="tenPhim" onChange={handleChange} />
+                        </div>
+                        <div className="mx-3 form-group ">
+                            <h6 className="font-weight-light" style={{ padding: 0 }}>Bí danh</h6>
+                            <input type="text" className="form-control " name="biDanh" onChange={handleChange} />
+                        </div>
+
+                    </div>
+
+                    <div className="t">
+
+                        <div className="mx-3 form-group ">
+                            <h6 className="font-weight-light" style={{ padding: 0 }}>Đánh giá</h6>
+                            <input type="text" className="form-control " name="danhGia" onChange={handleChange} />
+                        </div>
+
+                        <div className="mx-3 form-group ">
+                            <h6 className="font-weight-light" style={{ padding: 0 }}>Mã nhóm</h6>
+                            <input type="text" className="form-control " name="maNhom" value="GP01" onChange={handleChange} placeholder="GP01" disabled />
+                        </div>
+                        <div className="mx-3 form-group ">
+                            <h6 className="font-weight-light" style={{ padding: 0 }}>Trailer</h6>
+                            <input type="text" className="form-control " name="trailer" onChange={handleChange} />
+                        </div>
+
+                    </div>
+                </div>
                 <div>
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Mã phim</h5>
-                        <input type="text" className="form-control " name="maPhim" onChange={handleChange} />
-                    </div>
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Tên phim</h5>
-                        <input type="text" className="form-control " name="tenPhim" onChange={handleChange} />
-                    </div>
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Trailer</h5>
-                        <input type="text" className="form-control " name="trailer" onChange={handleChange} />
-                    </div>
+                    <h6 className="mx-3 font-weight-light" style={{ padding: 0 }}>Mô tả</h6>
+                    <textarea className="form-control mx-3 text-overflow " rows="5" cols="20" name="moTa" onChange={handleChange} />
                 </div>
+                <button className="btn btn-secondary ml-3 mt-5" type="reset"><i className="fa fa-sync"></i></button>
+                <button className="btn btn-danger mt-5 ml-3 w-100" >Thêm</button>
 
-                <div className="">
+            </form>
 
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Đánh giá</h5>
-                        <input type="text" className="form-control " name="danhGia" onChange={handleChange} />
-                    </div>
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }} >Hình ảnh</h5>
-                        <input type="file" name="hinhAnh" onChange={handleChange} />
-                    </div>
-                    <div className="mx-3 form-group ">
-                        <h5 className="" style={{ padding: 0 }}>Mã nhóm</h5>
-                        <input type="text" className="form-control " name="maNhom" value="GP01" onChange={handleChange} />
-                    </div>
-                    {/* <div className="mx-3 ">
-                        <h5 className="" style={{ padding: 0 }}>Ngày khởi chiếu</h5>
-                        <DrawerForm />
-                    </div> */}
-                </div>
-            </div>
-            <div>
-                <h5 className="mx-3" style={{ padding: 0 }}>Mô tả</h5>
-                <textarea className="form-control mx-3" rows="3" name="moTa" onChange={handleChange}></textarea>
-            </div>
 
-            <button className="btn btn-danger mt-5 ml-3 w-100" >Thêm</button>
-
-        </form>
-    )
+        </div>)
 }

@@ -30,7 +30,6 @@ export const UserTimKiem = ({ user, ketQua, userLogin, onDelete, onUpdate }) => 
                     <td>{kq.maLoaiNguoiDung}</td>
 
                     <td className="d-flex justify-content-center">
-                        <button className="btn btn-outline-success">Ghi danh</button>
                         <button className="btn mx-3 btn-outline-info" onClick={() => onUpdate(kq.taiKhoan, kq.matKhau, kq.hoTen, kq.email, kq.soDt, kq.maLoaiNguoiDung, userLogin.maLoaiNguoiDung)}>sửa</button>
                         <button className="btn btn-outline-danger" onClick={() => onDelete(kq.taiKhoan, userLogin.maLoaiNguoiDung)}>X</button>
                     </td>

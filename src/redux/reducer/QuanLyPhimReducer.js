@@ -1,14 +1,21 @@
 import { DELETE_FILM_ERROR, DELETE_FILM_SUCCESS, LAY_DANH_SACH_PHIM_ACTION } from "../const/QuanLyPhimConst"
 import swal from 'sweetalert2'
 
+let filmUpdate = {}
+
+let congTac = "dong"
+
 
 const stateDefault = {
     dsPhim: [],
     chiTietPhim: {},
     thongTinPhongVe: {},
+    filmUpdate: filmUpdate,
+    congTac: congTac,
+
 }
 
-export const QuanLyPhimReducer = (state = stateDefault, action) => {
+const QuanLyPhimReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case LAY_DANH_SACH_PHIM_ACTION: {
             state.dsPhim = action.dsPhim;
@@ -35,6 +42,32 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
             return { ...state, err: action.payload }
         }
 
+
+        case 'UpdateFlim': {
+            console.log("action.data: ")
+            console.log(action.data);
+
+            console.log("state.filmUpdate");
+            console.log(state.filmUpdate);
+            console.log("action.data");
+            console.log(action.data);
+            state.congTac = "mo"
+
+            state.filmUpdate = { ...action.data };
+            // alert(state.userUpdate);
+            // console.log(state.userUpdate);
+            return { ...state };
+        }
+
+        case 'DONG_MO_FILM': {
+            state.congTac = "dong"
+            return { ...state }
+        }
+
+
+
+
         default: return { ...state }
     }
 }
+export default QuanLyPhimReducer

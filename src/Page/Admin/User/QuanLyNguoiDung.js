@@ -107,8 +107,6 @@ export default function QuanLyNguoiDung() {
     let dk = useSelector(state => state.stateUser.congTac)
 
     if (dk == "mo") {
-        // alert(nut)
-        console.log(taiKhoan)
         return <SuaNguoiDung />
     }
 
@@ -117,6 +115,7 @@ export default function QuanLyNguoiDung() {
 
     return (
         <div className="container">
+            {/* Thêm người dùng */}
             <div className="m-3">
 
                 {/* <!-- Button trigger modal --> */}

@@ -170,6 +170,25 @@ export const deleteFilm = (maPhim, maLoaiNguoiDung) => {
     }
 }
 
+export const updateFilm = (maPhim, tenPhim, biDanh, trailer, hinhAnh, moTa, maNhom, ngayKhoiChieu, danhGia, maLoaiNguoiDunguser) => {
+    return async (dispatch) => {
+        if (maLoaiNguoiDunguser === "QuanTri") {
+            let filmupdate = { maPhim, tenPhim, biDanh, trailer, hinhAnh, moTa, maNhom, ngayKhoiChieu, danhGia }
+            console.log("userupdate:")
+            console.log(filmupdate)
+            dispatch({
+                type: 'UpdateFlim',
+                data: filmupdate,
+            })
+        }
+        else {
+            alert("CHỈ QUẢN TRỊ MỚI UPDATE ĐƯỢC");
+        }
+
+
+    }
+}
+
 
 
 // vd: mình chỉ cần dispatch 1 lần bên trang chủ, còn lại mình dispatch bên đây

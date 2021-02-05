@@ -44,7 +44,8 @@ const QuanLyNguoiDungReducer = (state = stateDefault, action,) => {
             return { ...state };
         }
         case 'DONG_MO': {
-
+            state.congTac = "dong"
+            return { ...state }
         }
 
         default: return { ...state }
